@@ -24,6 +24,7 @@ DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 DEFAULT_LANG = 'en'
 
 TYPOGRIFY = True  # Nice typographic things
+TYPOGRIFY_IGNORE_TAGS = ['h1']
 
 
 # ---------------
