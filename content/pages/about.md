@@ -7,6 +7,7 @@ Slug: about
 
 Notes, all in the public
 
+
 # Rationale
 
 Open Notebook Science baby!
@@ -21,3 +22,11 @@ Open Notebook Science baby!
 # Human and organizational research ethics
 
 No contact information for people
+
+
+# How it works
+
+- Pelican
+- Pandoc
+- Special plugins (like search)
+- Git
