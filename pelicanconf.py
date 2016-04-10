@@ -16,6 +16,7 @@ SITENAME = 'Heiss Research Notebook'
 DESCRIPTION = ''
 
 SITEURL = ''
+GITHUB_URL = 'https://github.com/andrewheiss/notebook'
 
 PATH = 'content'
 
