@@ -1,0 +1,435 @@
+/* @override 
+	http://localhost:8000/theme/css/notebook.css */
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    line-height: 1.7em;
+    color: rgb(65, 65, 65);
+    font-size: 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: #925B2A;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+#layout {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 15px
+}
+
+/* external links */
+#layout a[href*="//"]:not([href*="notebook.andrewheiss.com"]) {
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(transparent, transparent), url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtODI2LjQyOSAtNjk4Ljc5MSkiPjxyZWN0IHdpZHRoPSI1Ljk4MiIgaGVpZ2h0PSI1Ljk4MiIgeD0iODI2LjkyOSIgeT0iNzAyLjMwOSIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjOTI1QjJBIi8+PGc+PHBhdGggZD0iTTgzMS4xOTQgNjk4Ljc5MWg1LjIzNHY1LjM5MWwtMS41NzEgMS41NDUtMS4zMS0xLjMxLTIuNzI1IDIuNzI1LTIuNjg5LTIuNjg5IDIuODA4LTIuODA4LTEuMzExLTEuMzExeiIgZmlsbD0iIzkyNUIyQSIvPjxwYXRoIGQ9Ik04MzUuNDI0IDY5OS43OTVsLjAyMiA0Ljg4NS0xLjgxNy0xLjgxNy0yLjg4MSAyLjg4MS0xLjIyOC0xLjIyOCAyLjg4MS0yLjg4MS0xLjg1MS0xLjg1MXoiIGZpbGw9IiNmZmYiLz48L2c+PC9nPjwvc3ZnPg==);
+    padding-right: 13px;
+}
+
+/* @group Sidebar */
+
+.sidebar h3 {
+    margin-bottom: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.sidebar-inner {
+    margin: 0 10px 0 0;
+}
+
+/* @end */
+
+/* @group Top menu bar */
+
+.top-menu-wrapper {
+    background-color: #24365F;
+}
+
+.home-menu-wrapper {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    -webkit-font-smoothing: antialiased;
+    height: 2.5em;
+    overflow: hidden;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+.home-menu-wrapper .pure-menu-heading {
+    text-transform: none;
+    font-weight: bold;
+}
+
+.home-menu-wrapper a {
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.home-menu-wrapper a,
+.home-menu-wrapper a:visited {
+    color: #fff !important;
+}
+
+.home-menu-wrapper li a:hover,
+.home-menu-wrapper li a:focus,
+.home-brand:hover {
+    background: none;
+    border: none;
+    color: rgb(175, 175, 175) !important;
+}
+
+.home-menu-wrapper.open {
+    height: 11em;
+}
+
+.home-menu-right {
+    text-align: right;
+}
+
+.pure-menu-heading {
+    padding-left: 0px;
+}
+
+.home-toggle {
+    width: 34px;
+    height: 34px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+.home-toggle .bar {
+    background-color: #fff;
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 100px;
+    position: absolute;
+    top: 1.7em;
+    right: 1em;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.home-toggle .bar:first-child {
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    transform: translateY(-6px);
+}
+
+.home-toggle.x .bar {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.home-toggle.x .bar:first-child {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/* @end */
+
+/* @group Main content */
+
+.note-title::before {
+    font-family: "FontAwesome";
+    content: "\f0f6";
+    font-weight: normal;
+    margin-right: 0.4em;
+}
+
+.project-title::before {
+    font-family: "FontAwesome";
+    content: "\f187";
+    font-weight: normal;
+    margin-right: 0.4em;
+}
+
+.date-title::before {
+    font-family: "FontAwesome";
+    content: "\f073";
+    font-weight: normal;
+    margin-right: 0.4em;
+}
+
+.tag-title::before {
+    font-family: "FontAwesome";
+    content: "\f02c";
+    font-weight: normal;
+    margin-right: 0.4em;
+}
+
+.alpha-title::before {
+    font-family: "FontAwesome";
+    content: "\f15d";
+    font-weight: normal;
+    margin-right: 0.4em;
+}
+
+h1 > small {
+    font-size: 0.5em;
+    padding-left: 0.5em;
+    text-transform: uppercase;
+    color: rgb(140, 140, 140);
+}
+
+.project-li > small {
+    text-transform: uppercase;
+    font-size: 0.6em;
+}
+
+.content h1 {
+	font-size: 2.2em;
+	line-height: 1em;
+}
+
+.content h2 {
+	margin-bottom: 0.2em;
+	padding-top: .5em;
+}
+
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+	margin-bottom: 0.2em;
+	padding-top: 0;
+}
+
+.content p,
+.content li {
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
+.content h2 + p, 
+.content h3 + p, .content h4 + p, 
+.content h5 + p, .content h6 + p, 
+.content h2 + ol,
+.content h3 + ol, .content h4 + ol,
+.content h5 + ol, .content h6 + ol,
+.content h2 + ul, 
+.content h3 + ul, .content h4 + ul, 
+.content h5 + ul, .content h6 + ul {
+	margin-top: 0;
+}
+
+/* Modify pure table defaults */
+.content .pure-table {
+	margin: 1em 0;
+}
+
+.content .pure-table thead {
+	color: rgb(65, 65, 65);
+}
+
+.content blockquote {
+	border-left: solid 5px rgb(140, 140, 140);
+	padding-left: 1em;
+	margin-left: 1em;
+	margin-right: 0;
+	color: rgb(140, 140, 140);
+	font-size: 1em;
+}
+
+.content .references p,
+.content .bibliography p {
+    padding-left: 40px;
+    text-indent: -40px;
+}
+
+.content .footnotes {
+    margin-top: 3em;
+	font-size: .8em;
+}
+
+.content .footnotes li p {
+	margin: 0 0 0.5em;
+}
+
+.bigfoot-footnote__content p {
+	font: 0.9em 'Source Sans Pro', sans-serif;
+	color: rgb(65, 65, 65);
+}
+
+.bigfoot-footnote__button:after {
+	color: rgb(65, 65, 65) !important;
+}
+
+/* @end */
+
+/* @group Article metadata */
+
+.note-meta {
+    background-color: rgb(235, 235, 235);
+	padding: 0.3em;
+	margin: 0em;
+	border-left: 3px solid rgb(140, 140, 140);
+}
+
+header .note-meta {
+    margin-bottom: 2em;
+}
+
+footer .note-meta {
+    margin-top: 2em;
+}
+
+.note-meta p, .note-meta li {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+.note-md {
+    text-align: right;
+}
+
+.note-modified {
+    text-align: center;
+}
+
+.note-tags {
+    margin-top: 0;
+}
+
+.note-tags {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.note-tags li {
+	display: inline-block;
+	background: #925B2A;
+	color: rgb(255, 255, 255);
+	padding: 0.1em 0.4em;
+	margin: 0 0.2em 0.5em 0;
+	white-space: nowrap;
+	font-size: 0.8em;
+}
+
+.note-tags a {
+	color: rgb(255, 255, 255);
+}
+
+.note-tags a:hover,
+.note-tags a:focus {
+	color: rgb(175, 175, 175);
+	text-decoration: none;
+}
+
+.back-to-top {
+	font-size: 0.6em;
+}
+
+/* @end */
+
+/* @group Footer */
+
+.footer .copy {
+	font-size: 0.9em;
+	margin-bottom: 0;
+}
+
+.footer .copy .cc-wrapper {
+    font-size: 0.9em;
+	position: relative;
+	bottom: -2.5px;
+	padding: 0 1em;
+}
+
+/* @end */
+
+
+/* @group Responsive stuff */
+/* Phones */
+@media (max-width: 47.999em) {
+    .home-menu-right {
+        text-align: left;
+    }
+
+    .home-toggle {
+        display: block;
+    }
+
+    .home-menu-wrapper {
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .pure-menu-item .pure-menu-link {
+        padding-left: 0px;
+    }
+    
+    .sidebar {
+        text-align: center;
+    }
+    
+    .sidebar ul {
+        padding-top: 1em;
+    }
+    
+    .sidebar li {
+        display: inline;
+        padding-right: 1em;
+        white-space: nowrap;
+    }
+    
+    .sidebar h3 {
+        display: none;
+    }
+    
+    /* The default Pure forms CSS makes all form elements on screens smaller than 480px wide appear as block, which forces the search box to display on the left. */
+    input[type=text], .pure-form {
+        margin-bottom: 0em !important;
+        display: inline !important;
+    }
+    
+    .footer {
+        text-align: center;
+    }
+}
+
+/* Tablets and above */
+@media (min-width: 48em) {    
+    .home-menu-wrapper {
+        max-width: 980px;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Desktops and above */
+@media (min-width: 78em) {
+
+}
+
+/* @end */

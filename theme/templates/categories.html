@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% set title = 'All projects' %}
+
+{% block title %}{{ title }} | {{ SITENAME }}{% endblock title %}
+
+{% block content %}
+        <h1 class="project-title">{{ title }}</h1>
+
+        <ul>
+        {% for category, articles in categories %}
+            <li class="project-li"><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> <small>{{ category.stage }}</small></li>
+        {% endfor %}
+        </ul>
+{% endblock %}

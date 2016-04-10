@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% set title = category %}
+
+{% block title %}{{ title }} | {{ SITENAME }}{% endblock title %}
+
+{% block content %}
+        <h1 class="project-title">{{ title }} <small>{{ category.stage }}</small></h1>
+
+        {{ category.description }}
+
+        <table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Modified</th>
+                    <th style="width: 70%;">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for article in articles | sort(reverse=True, attribute='modified') %}
+                <tr>
+                    <td>{{ article.locale_date }}</td>
+                    <td><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

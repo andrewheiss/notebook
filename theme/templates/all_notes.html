@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% set title = 'All notes, alpabetically' %}
+
+{% block title %}{{ title }} | {{ SITENAME }}{% endblock title %}
+
+{% block content %}
+        <h1 class="alpha-title">{{ title }}</h1>
+
+        <table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Modified</th>
+                    <th style="width: 50%;">Title</th>
+                    <th style="width: 25%;">Project</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles | sort(attribute='title') %}
+                <tr>
+                    <td>{{ article.locale_date }}</td>
+                    <td><a href='/{{ article.url }}'>{{ article.title }}</a></td>
+                    <td><a href='/{{ article.category.url }}'>{{ article.category }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

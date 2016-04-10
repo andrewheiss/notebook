@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% set title = 'Search results' %}
+
+{% block title %}{{ title }} | {{ SITENAME }}{% endblock title %}
+
+{% block extra_script %}
+    <script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch({
+            'show': 10,
+            'mode': 'json',
+            'contentLocation': '/tipuesearch_content.json'
+        });
+    });
+    </script>
+{% endblock extra_script %}
+
+{% block content %}
+        <h1 class="search-title">{{ title }}</h1>
+
+        <form class="pure-form" id="searchform" action="/search/" onsubmit="return (this.elements['q'].value.length > 0)">
+            <input id="tipue_search_input" class="pure-input-2-3" type="text" name="q" placeholder="Search">
+        </form>
+
+        <div id="tipue_search_content"></div>
+{% endblock content %}

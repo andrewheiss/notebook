@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% set title = 'All notes by tag' %}
+
+{% block title %}{{ title }} | {{ SITENAME }}{% endblock title %}
+
+{% block content %}
+        <h1 class="tag-title">{{ title }}</h1>
+
+        <ul class="list note-tags">
+        {% for tag, articles in tags | sort %}
+            {% set num = articles | count %}
+            <li>
+                <a href="#{{ tag | lower | replace(' ', '-') }}">{{ tag }} <span class="count">({{ num }})</span></a>
+            </li>
+        {% endfor %}
+        </ul>
+
+{% set first = true %}
+{% for tag, articles in tags | sort %}
+    {% set current_tag = tag %}
+    {% if current_tag != next_tag %}
+        {% if first == false %}
+            </tbody>
+        </table>
+        {% endif %}
+        <h2 id="{{ current_tag | lower | replace(' ', '-') }}">
+            <a href="/{{ current_tag.url }}" rel="tag">{{ current_tag }}</a> <a href="#" class="back-to-top">&#8617;</a>
+        </h2>
+        <table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Modified</th>
+                    <th style="width: 50%;">Title</th>
+                    <th style="width: 25%;">Project</th>
+                </tr>
+            </thead>
+            <tbody>
+    {%- endif %}
+    {% set first = false %}
+    {% for article in articles %}
+                <tr>
+                    <td>{{ article.locale_date }}</td>
+                    <td><a href='/{{ article.url }}'>{{ article.title }}</a></td>
+                    <td><a href='/{{ article.category.url }}'>{{ article.category }}</a></td>
+                </tr>
+    {% endfor %}
+    {% set next_tag = current_tag %}
+{% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

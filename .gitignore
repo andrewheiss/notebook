@@ -1,0 +1,11 @@
+# Python stuff
+__pycache__/*
+
+# Pelican stuff
+*.pid
+cache/*
+output/*
+
+# Other stuff
+content/files/*
+*.sublime-workspace

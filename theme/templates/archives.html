@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% set title = 'All notes by date' %}
+
+{% block title %}{{ title }} | {{ SITENAME }}{% endblock title %}
+
+{% block content %}
+        <h1 class="date-title">{{ title }}</h1>
+
+{% set first = true %}
+{% for article in articles | sort(attribute='date', reverse=True)  %}
+    {% set article_year = article.date | strftime('%Y') %}
+    {% if article_year != next_year %}
+        {% if first == false %}
+            </tbody>
+        </table>
+        {% endif %}
+        <h2>{{ article_year }}</h2>
+        <table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Modified</th>
+                    <th style="width: 50%;">Title</th>
+                    <th style="width: 25%;">Project</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% endif %}
+    {% set first = false %}
+                <tr>
+                    <td>{{ article.locale_date }}</td>
+                    <td><a href='/{{ article.url }}'>{{ article.title }}</a></td>
+                    <td><a href='/{{ article.category.url }}'>{{ article.category }}</a></td>
+                </tr>
+    {% set next_year = article_year %}
+{% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

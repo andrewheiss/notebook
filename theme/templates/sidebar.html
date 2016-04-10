@@ -1,0 +1,25 @@
+            <nav>
+                <h3>General</h3>
+
+                <ul>
+                {% for title, link in LINKS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                </ul>
+
+                <div>
+                    <form class="pure-form" id="searchform" action="/search/" onsubmit="return (this.elements['q'].value.length > 0)">
+                        <input id="searchbox" type="text" name="q" placeholder="Search">
+                    </form>
+                </div>
+
+                <h3>Topics &amp; projects</h3>
+
+                <ul>
+                {% for cat, null in categories %}
+                    <li class="project-li">
+                        <a href="/{{ cat.url }}"><i class="fa fa-archive"></i> {{ cat }}</a> <small>{{ cat.stage }}</small>
+                    </li>
+                {% endfor %}
+                </ul>
+            </nav>
