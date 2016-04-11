@@ -53,6 +53,7 @@ USE_FOLDER_AS_CATEGORY = True
 CATEGORIES_URL = 'project/'
 CATEGORIES_SAVE_AS = 'project/index.html'
 
+REVERSE_CATEGORY_ORDER = False
 CATEGORY_URL = 'project/{slug}/'
 CATEGORY_SAVE_AS = 'project/{slug}/index.html'
 
