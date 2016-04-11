@@ -16,9 +16,9 @@
                 <h3>Topics &amp; projects</h3>
 
                 <ul>
-                {% for cat, null in categories %}
+                {% for category, null in categories %}
                     <li class="project-li">
-                        <a href="/{{ cat.url }}"><i class="fa fa-archive"></i> {{ cat }}</a> <small>{{ cat.stage }}</small>
+                        <a href="/{{ category.url }}"><i class="fa fa-archive"></i> {{ category }}</a> <small>{{ category.stage }}</small>
                     </li>
                 {% endfor %}
                 </ul>
