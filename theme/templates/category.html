@@ -12,12 +12,12 @@
         <table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
             <thead>
                 <tr>
-                    <th style="width: 30%;">Modified</th>
+                    <th style="width: 30%;">Created</th>
                     <th style="width: 70%;">Title</th>
                 </tr>
             </thead>
             <tbody>
-            {% for article in articles | sort(reverse=True, attribute='modified') %}
+            {% for article in articles | sort(reverse=True, attribute='date') %}
                 <tr>
                     <td>{{ article.locale_date }}</td>
                     <td><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></td>
