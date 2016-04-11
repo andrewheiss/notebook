@@ -354,7 +354,7 @@ footer .note-meta {
 
 .footer ul {
 	font-size: 0.9em;
-	margin-bottom: 0;
+	margin: 1em 0 2em;
 	list-style-type: none;
 	padding-left: 0;
 }
