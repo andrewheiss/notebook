@@ -222,7 +222,7 @@ h1 > small {
 }
 
 .content p,
-.content li {
+.content li li li li li {
     font-size: 1.1em;
     line-height: 1.5em;
 }
