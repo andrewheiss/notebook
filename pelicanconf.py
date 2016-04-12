@@ -75,8 +75,8 @@ AUTHORS_SAVE_AS = ''
 ARCHIVES_SAVE_AS = 'archive/index.html'
 
 # Include source files, just for fun
-# OUTPUT_SOURCES = True
-# OUTPUT_SOURCES_EXTENSION = '.txt'
+OUTPUT_SOURCES = True
+OUTPUT_SOURCES_EXTENSION = '.txt'
 
 # Ordering
 PAGE_ORDER_BY = 'date'
