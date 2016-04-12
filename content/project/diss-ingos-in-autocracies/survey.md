@@ -70,7 +70,7 @@ I have read the above information, and I consent to take part in the study.
 
 :   Multiple answers allowed
 
-    Options randomized (except "Other", which stays at the bottom)
+    Option order randomized (except "Other", which stays at the bottom)
 
     - Development
     - Human rights
