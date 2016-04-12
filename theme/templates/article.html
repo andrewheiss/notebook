@@ -13,7 +13,7 @@
 {% endblock extra_script %}
 
 {% block content %}
-        <article>
+        <article class="{% if article.class %}{{ article.class }}{% endif %}">
         <header>
             <h1 class="note-title">{{ article.title }}</h1>
             <div class="note-meta pure-g">

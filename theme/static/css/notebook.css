@@ -222,7 +222,8 @@ h1 > small {
 }
 
 .content p,
-.content li li li li li {
+.content li li li li li,
+.content dl {
     font-size: 1.1em;
     line-height: 1.5em;
 }
@@ -279,6 +280,39 @@ h1 > small {
 
 .bigfoot-footnote__button:after {
 	color: rgb(65, 65, 65) !important;
+}
+
+.content dt {
+    padding-top: 0.7em;
+    margin-left: 40px;
+    display: list-item;
+    list-style-type: disc;
+}
+
+.content dt:first-child {
+    padding-top: 0;
+}
+
+.content dl p {
+    margin: 0.4em 0;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.content dl dd {
+    margin: 0.5em 0 0 60px;
+}
+
+/* Special styles for surveys */
+.survey dt {
+    display: block;
+    list-style-type: none;
+    margin-left: 0;
+    font-weight: bold;
+}
+
+.survey dl dd {
+    margin-left: 20px;
 }
 
 /* @end */
