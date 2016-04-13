@@ -1,6 +1,20 @@
 {% extends "base.html" %}
+{% import "macros.html" as meta %}
 
 {% set title = 'All projects' %}
+{% set url = SITEURL + '/' + 'project/' %}
+
+{% block canonical_rel %}
+    <link rel="canonical" href="{{ url }}">
+{% endblock %}
+
+{% block meta_tags %}
+    {{ meta.meta_description(DESCRIPTION) }}
+{% endblock meta_tags %}
+
+{% block social_meta %}
+    {{ meta.open_graph(title, url, DESCRIPTION) }}
+{% endblock social_meta %}
 
 {% block title %}{{ title }} | {{ SITENAME }}{% endblock title %}
 

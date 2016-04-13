@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Andrew Heiss">
+    <meta name="author" content="{{ AUTHOR }}">
     {% block meta_tags %}{% endblock meta_tags %}
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     {% block canonical_rel %}{% endblock %}
+
+    {% block social_meta %}{% endblock social_meta %}
 
     <link rel="apple-touch-icon-precomposed" href="/theme/apple-touch-icon.png" />
     <link rel="shortcut icon" href="/theme/favicon.ico?v=001" />

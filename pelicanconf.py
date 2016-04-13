@@ -13,7 +13,7 @@ DELETE_OUTPUT_DIRECTORY = True
 # ------------------
 AUTHOR = 'Andrew Heiss'
 SITENAME = 'Heiss Research Notebook'
-DESCRIPTION = ''
+DESCRIPTION = 'The open research notebook of Andrew Heiss, containing notes and resources for all ongoing research projects.'
 
 SITEURL = ''
 GITHUB_URL = 'https://github.com/andrewheiss/notebook'
