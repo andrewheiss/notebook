@@ -35,7 +35,7 @@ While [Jekyll](https://jekyllrb.com/) seems to be what all the cool kids use the
 
 Each note in this notebook is a [plain text file](http://plain-text.co/) written in [pandoc-flavored](http://pandoc.org/) [Markdown](https://daringfireball.net/projects/markdown/). The entire site is stored in a [GitHub repository](https://github.com/andrewheiss/notebook), and you can see all my [fancy/complicated Pelican settings](https://github.com/andrewheiss/notebook/blob/master/pelicanconf.py) there. I use a [Makefile](https://github.com/andrewheiss/notebook/blob/master/Makefile) to build the site locally and upload it to my server with rsync. Maybe someday when I'm a cool kid I'll hook up a [CI service](https://travis-ci.org/) to [build and deploy the site each time I commit to GitHub](http://blog.mathieu-leplatre.info/publish-your-pelican-blog-on-github-pages-via-travis-ci.html). That day is not today.
 
-Because [I block search engines](https://notebook.andrewheiss.com/robots.txt) from this notebook (since the content here is not really meant for final consumption by the public), I use the jQuery-based [Tipue Search](http://www.tipue.com/search/) plugin to search this site.
+Because [I block search engines](https://notebook.andrewheiss.com/robots.txt) from this notebook (since the content here is not really meant for final consumption by the public), I use the jQuery-based [Tipue Search](http://www.tipue.com/search/) plugin to search this site. I use [Let's Encrypt](https://letsencrypt.org/) for SSL.
 
 The morbidly curious can [read about all the software I use](https://www.andrewheiss.com/uses/).
 
