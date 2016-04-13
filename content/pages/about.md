@@ -26,7 +26,7 @@ This notebook contains notes, primary sources, scribblings, code, figures, half-
 
 One possible reason open notebooks have taken some root among historians, digital humanists, and researchers in the hard sciences is that these disciplines tend to involve dead people and inanimate objects. My own research on international relations, organizational strategies, and other policy issues deals with living people and organizations, and sharing research notes about them can be fraught with privacy and ethical implications.
 
-Thus, this notebook does not contain transcripts from in-person interviews, identifiable survey results, or contact information for people in any organizations I study. When I do link to information related to people, I link to publicly viewable pages such as Twitter profiles or institutional home pages.
+Thus, this notebook does not contain transcripts from in-person interviews, identifiable survey results, or contact information for people in any organizations I study. When I do link to information related to people, I link to publicly viewable pages such as Twitter profiles or institutional home pages. I store all my interview notes, transcriptions, and other details locally in a [SQLite database](https://www.andrewheiss.com/blog/2016/02/10/libreoffice-base-sqlite-odbc-osx/) in an encrypted spare bundle image.
 
 
 # How it works
@@ -35,7 +35,7 @@ While [Jekyll](https://jekyllrb.com/) seems to be what all the cool kids use the
 
 Each note in this notebook is a [plain text file](http://plain-text.co/) written in [pandoc-flavored](http://pandoc.org/) [Markdown](https://daringfireball.net/projects/markdown/). The entire site is stored in a [GitHub repository](https://github.com/andrewheiss/notebook), and you can see all my [fancy/complicated Pelican settings](https://github.com/andrewheiss/notebook/blob/master/pelicanconf.py) there. I use a [Makefile](https://github.com/andrewheiss/notebook/blob/master/Makefile) to build the site locally and upload it to my server with rsync. Maybe someday when I'm a cool kid I'll hook up a [CI service](https://travis-ci.org/) to [build and deploy the site each time I commit to GitHub](http://blog.mathieu-leplatre.info/publish-your-pelican-blog-on-github-pages-via-travis-ci.html). That day is not today.
 
-Because [I block search engines](https://notebook.andrewheiss.com/robots.txt) from this notebook (since the content here is not really meant for final consumption by the public), I use the jQuery-based [Tipue Search](http://www.tipue.com/search/) plugin to search this site. I use [Let's Encrypt](https://letsencrypt.org/) for SSL.
+Because [I block search engines](https://notebook.andrewheiss.com/robots.txt) from this notebook (since the content here is not really meant for final consumption by the public), I use the jQuery-based [Tipue Search](http://www.tipue.com/search/) plugin to search this site. I use [Let's Encrypt](https://letsencrypt.org/) for SSL. The site is fancy and responsive thanks to [Pure CSS](http://purecss.io/).
 
 The morbidly curious can [read about all the software I use](https://www.andrewheiss.com/uses/).
 
