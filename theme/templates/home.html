@@ -1,7 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
+        <div class="home">
+            <section class="home-blurb">
+            <h1>{{ page.title }}</h1>
 
-        {{ page.content }}
+            {{ page.content }}
+            </section>
+
+            <div class="pure-g">
+                <div class="pure-u-1 pure-u-md-2-5 projects">
+                    <h2>Active projects</h2>
+                    {% for category, null in categories %}
+                    <ul>
+                    {% if category.stage == 'Active' %}
+                        <li class="project-li">
+                            <strong><a href="/{{ category.url }}">{{ category }}:</a></strong> {{ category.blurb }}
+                        </li>
+                    {% endif %}
+                    </ul>
+                    {% endfor %}
+                </div>
+                <div class="pure-u-1 pure-u-md-3-5 updates">
+                    <h2>Recent updates</h2>
+                    <table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Modified</th>
+                                <th style="width: 45%;">Title</th>
+                                <th style="width: 30%;">Project</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for article in articles[:7] | sort(reverse=True, attribute='modified') %}
+                            <tr>
+                                <td>{{ article.modified | strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                                <td><a href='/{{ article.url }}'>{{ article.title }}</a></td>
+                                <td><a href='/{{ article.category.url }}'>{{ article.category }}</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 {% endblock %}

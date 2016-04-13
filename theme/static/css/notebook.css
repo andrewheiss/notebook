@@ -315,6 +315,19 @@ h1 > small {
     margin-left: 20px;
 }
 
+.home .projects ul {
+    list-style-type: none;
+    padding: 10px 20px 0 0;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+.home .updates table {
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
+
 /* @end */
 
 /* @group Article metadata */
