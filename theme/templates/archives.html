@@ -8,7 +8,7 @@
         <h1 class="date-title">{{ title }}</h1>
 
 {% set first = true %}
-{% for article in articles | sort(attribute='date', reverse=True)  %}
+{% for article in articles | sort(attribute='modified', reverse=True)  %}
     {% set article_year = article.date | strftime('%Y') %}
     {% if article_year != next_year %}
         {% if first == false %}
@@ -20,15 +20,15 @@
             <thead>
                 <tr>
                     <th style="width: 25%;">Modified</th>
-                    <th style="width: 50%;">Title</th>
-                    <th style="width: 25%;">Project</th>
+                    <th style="width: 45%;">Title</th>
+                    <th style="width: 30%;">Project</th>
                 </tr>
             </thead>
             <tbody>
     {% endif %}
     {% set first = false %}
                 <tr>
-                    <td>{{ article.locale_date }}</td>
+                    <td>{{ article.modified | strftime('%Y-%m-%d %H:%M:%S') }}</td>
                     <td><a href='/{{ article.url }}'>{{ article.title }}</a></td>
                     <td><a href='/{{ article.category.url }}'>{{ article.category }}</a></td>
                 </tr>

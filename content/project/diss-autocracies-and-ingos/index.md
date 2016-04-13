@@ -1,5 +1,7 @@
 Title: ✶ Autocracies and INGOs
 Date: 2016-04-11
+Modified: 2016-04-11
+Blurb: First half of dissertation: use statistics and case studies to determine how and why autocrats regulate and control INGOs
 Stage: Active
 Slug: diss-autocracies-and-ingos
 

@@ -18,7 +18,7 @@
             <tbody>
                 {% for article in articles | sort(attribute='title') %}
                 <tr>
-                    <td>{{ article.locale_date }}</td>
+                    <td>{{ article.modified | strftime('%Y-%m-%d %H:%M:%S') }}</td>
                     <td><a href='/{{ article.url }}'>{{ article.title }}</a></td>
                     <td><a href='/{{ article.category.url }}'>{{ article.category }}</a></td>
                 </tr>

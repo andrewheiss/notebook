@@ -31,8 +31,8 @@
             <thead>
                 <tr>
                     <th style="width: 25%;">Modified</th>
-                    <th style="width: 50%;">Title</th>
-                    <th style="width: 25%;">Project</th>
+                    <th style="width: 45%;">Title</th>
+                    <th style="width: 30%;">Project</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@
     {% set first = false %}
     {% for article in articles %}
                 <tr>
-                    <td>{{ article.locale_date }}</td>
+                    <td>{{ article.modified | strftime('%Y-%m-%d %H:%M:%S') }}</td>
                     <td><a href='/{{ article.url }}'>{{ article.title }}</a></td>
                     <td><a href='/{{ article.category.url }}'>{{ article.category }}</a></td>
                 </tr>

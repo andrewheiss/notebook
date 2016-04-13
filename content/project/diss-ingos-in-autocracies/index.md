@@ -1,5 +1,7 @@
 Title: ✶ INGOs in autocracies
 Date: 2016-04-11
+Modified: 2016-04-11
+Blurb: Second half of dissertation: use a global survey of thousands of INGOs and detailed case studies of a dozen INGOs to determine how INGOs work in autocracies
 Stage: Active
 Slug: diss-ingos-in-autocracies
 

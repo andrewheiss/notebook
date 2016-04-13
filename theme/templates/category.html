@@ -12,14 +12,14 @@
         <table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
             <thead>
                 <tr>
-                    <th style="width: 30%;">Created</th>
+                    <th style="width: 30%;">Modified</th>
                     <th style="width: 70%;">Title</th>
                 </tr>
             </thead>
             <tbody>
-            {% for article in articles | sort(reverse=True, attribute='date') %}
+            {% for article in articles | sort(reverse=True, attribute='modified') %}
                 <tr>
-                    <td>{{ article.locale_date }}</td>
+                    <td>{{ article.modified | strftime('%Y-%m-%d %H:%M:%S') }}</td>
                     <td><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></td>
                 </tr>
             {% endfor %}
