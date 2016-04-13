@@ -353,7 +353,7 @@ footer .note-meta {
     margin: 0;
 }
 
-.note-md {
+.note-md, .note-history {
     text-align: right;
 }
 

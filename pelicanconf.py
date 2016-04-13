@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import jinja2
+import os
 from bs4 import BeautifulSoup
 
 # Site development flag
@@ -29,6 +30,7 @@ TYPOGRIFY_IGNORE_TAGS = ['h1']
 
 GOOGLE_ANALYTICS = ''
 
+BASE_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
 # ---------------
 # Site building
@@ -158,7 +160,15 @@ def current_year(value):
     import time
     return(time.strftime("%Y"))
 
+def github_history(path):
+    basename = path.replace(BASE_DIRECTORY, '')
+    # github_url = GITHUB_URL + '/blob/master' + basename  # The actual file
+    # github_url = GITHUB_URL + '/commits/master' + basename  # Commits affecting the file
+    github_url = GITHUB_URL + '/blame/master' + basename  # Blame history
+    return(github_url)
+
 
 JINJA_FILTERS = {'pure_table': pure_table,
                  'fmt_date': fmt_date,
-                 'current_year': current_year}
+                 'current_year': current_year,
+                 'github_history': github_history}
