@@ -26,7 +26,7 @@ This notebook contains notes, primary sources, scribblings, code, figures, half-
 
 One possible reason open notebooks have taken some root among historians, digital humanists, and researchers in the hard sciences is that these disciplines tend to involve dead people and inanimate objects. My own research on international relations, organizational strategies, and other policy issues deals with living people and organizations, and sharing research notes about them can be fraught with privacy and ethical implications.
 
-Thus, this notebook does not contain transcripts from in-person interviews, identifiable survey results, or contact information for people in any organizations I study. When I do link to information related to people, I link to publicly viewable pages such as Twitter profiles or institutional home pages. I store all my interview notes, transcriptions, and other details locally in a [SQLite database](https://www.andrewheiss.com/blog/2016/02/10/libreoffice-base-sqlite-odbc-osx/) in an encrypted spare bundle image.
+Thus, this notebook does not contain transcripts from in-person interviews, identifiable survey results, or contact information for people in any organizations I study. When I do link to information related to people, I link to publicly viewable pages such as Twitter profiles or institutional home pages. I store all my interview notes, transcriptions, and other details locally in an [SQLite database](https://www.andrewheiss.com/blog/2016/02/10/libreoffice-base-sqlite-odbc-osx/) in an encrypted spare bundle image.
 
 
 # How it works
