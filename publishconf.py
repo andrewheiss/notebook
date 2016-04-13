@@ -11,6 +11,8 @@ from pelicanconf import *
 SITEURL = 'https://notebook.andrewheiss.com'
 RELATIVE_URLS = False
 
+GOOGLE_ANALYTICS = 'UA-527449-14'
+
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 

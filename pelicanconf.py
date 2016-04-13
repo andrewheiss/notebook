@@ -27,6 +27,8 @@ DEFAULT_LANG = 'en'
 TYPOGRIFY = True  # Nice typographic things
 TYPOGRIFY_IGNORE_TAGS = ['h1']
 
+GOOGLE_ANALYTICS = ''
+
 
 # ---------------
 # Site building
