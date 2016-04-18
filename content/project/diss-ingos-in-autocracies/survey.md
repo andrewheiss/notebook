@@ -1,6 +1,6 @@
 Title: Annotated survey draft
 Date: 2016-04-12
-Modified: 2016-04-12 20:56:37
+Modified: 2016-04-17 23:49:25
 Class: survey
 Slug: survey-draft
 
@@ -27,28 +27,28 @@ I have read the above information, and I consent to take part in the study.
 
 # Introductory questions
 
-*Q1.1* What is the name of your organization?
+*Q1.1*: What is the name of your organization?
 
 :   Text field
 
-*Q1.2* Where is your organization's headquarters?
+*Q1.2*: Where is your organization's headquarters?
 
 :   Autocomplete text field populated with a list of countries
 
     [How to add this to Qualtrics](/project/diss-ingos-in-autocracies/survey-notes/)
 
-*Q1.3* What is your position in the organization?
+*Q1.3*: What is your position in the organization?
 
 :    Single answer
 
     - Executive director
     - Program officer
-    - Public relations officer 
+    - Public relations officer
     - Staff member
     - Receptionist
     - Other
 
-*Q1.4* Does your organization work in a country other than your home country?
+*Q1.4*: Does your organization work in a country other than the country in which it is headquartered?
 
 :   If the respondent answers no, end the survey early since they're not an INGO
 
@@ -58,19 +58,30 @@ I have read the above information, and I consent to take part in the study.
     - No
 
 
-*Q1.5* In how many countries does your organization work?
+*Q1.5*: In how many countries does your organization work?
 
 :   Numeric text field
+
+    If more than 5, let them choose whichever ones?
+
+*Q1.6a–d*: Besides the country where your organization has its headquarters country, where does your country work?
+
+:   Autocomplete text field populated with a list of countries
+
+    Verify that it's not the same as their home country
+
+    Ask this question 1–4 times, depending on Q1.5
+
 
 ---
 
 # Organizational questions
 
-*Q2.1* Which issues does your organization focus on?
+*Q2.1*: Which issues does your organization focus on?
 
 :   Multiple answers allowed
 
-    Option order randomized (except "Other", which stays at the bottom)
+    MAYBE: Option order randomized (except "Other", which stays at the bottom)
 
     - Development
     - Human rights
@@ -82,13 +93,25 @@ I have read the above information, and I consent to take part in the study.
     - Human trafficking
     - Other
 
-*Q2.2* Which issue does your organization focus on *the most*?
+*Q2.2*: Which issue does your organization focus on *the most*?
 
-:   Text field
+:   Single answer
+
+    Populate list with the selected options from Q2.1
+
+    - Development
+    - Human rights
+    - Environment
+    - Education
+    - Disaster relief
+    - Freedom of expression
+    - Democracy assistance
+    - Human trafficking
+    - Other
 
 ---
 
-*Q2.3* Please indicate how often your organization engages in each of these types of activities:
+*Q2.3*: Please indicate how often your organization engages in each of these types of activities:
 
 :   Qualtrics side-by-side table
 
@@ -102,31 +125,31 @@ I have read the above information, and I consent to take part in the study.
 
 ---
 
-*Q2.4* How does your organization provide direct aid and services?
+*Q2.4*: How does your organization provide direct aid and services?
 
 :   Multiline text field
 
     Display if Q2.3's "Providing direct aid and services" is "Sometimes" or greater
 
-*Q2.5* How does your organization engage in research and public education?
+*Q2.5*: How does your organization engage in research and public education?
 
 :   Multiline text field
 
     Display if Q2.3's "Engaging in research and public education" is "Sometimes" or greater
 
-*Q2.6* How does your organization mobilize people?
+*Q2.6*: How does your organization mobilize people?
 
 :   Multiline text field
 
     Display if Q2.3's "Mobilizing people" is "Sometimes" or greater
 
-*Q2.7* How does your organization engage in advocacy?
+*Q2.7*: How does your organization engage in advocacy?
 
 :   Multiline text field
 
     Display if Q2.3's "Engaging in advocacy" is "Sometimes" or greater
 
-*Q2.8* How does your organization monitor and assess policies, agreements, and commitments?
+*Q2.8*: How does your organization monitor and assess policies, agreements, and commitments?
 
 :   Multiline text field
 
@@ -134,25 +157,15 @@ I have read the above information, and I consent to take part in the study.
 
 ---
 
-*Q2.9* Approximately how many full-time employees does your organization have?
+*Q2.9*: Approximately how many full-time employees does your organization have?
 
 :   Numeric text field
 
-*Q2.10* Approximately how many volunteers does your organization have?
+*Q2.10*: Approximately how many volunteers does your organization have?
 
 :   Numeric text field
 
-*Q2.11* How would you describe your organization's structure?
-
-:   Single answer
-
-    - A unitary independent organization
-    - A subsidiary of a larger organization
-    - A coalition or federation of independent organizations
-    - Other
-    - Don't know
-
-*Q2.12* Does your organization collaborate with other organizations or institutions?
+*Q2.12*: Does your organization collaborate with other organizations or institutions?
 
 :   Multiple answers allowed
 
@@ -164,65 +177,59 @@ I have read the above information, and I consent to take part in the study.
     - Don't know
     - We do not collaborate with other organizations
 
-*Q2.13* Please list a few of the organizations you partner with most often:
+*Q2.13*: Please list a few of the organizations you partner with most often:
 
 :   Text field
 
     Display if Q2.12 is not "Don't know" or "We do not…"
 
-*Q2.14* How much of your organization's funding comes from each of these sources?
+*Q2.14*: How much of your organization's funding comes from each of these sources?
 
 :   Qualtrics side-by-side table
 
-    |                      | A great deal | A lot | A moderate amount | A little | None at all | Don't know | Not applicable |
-    |----------------------|:------------:|:-----:|:-----------------:|:--------:|:-----------:|:----------:|:--------------:|
-    | Individual donations |       •      |   •   |         •         |     •    |      •      |      •     |        •       |
-    | Corporate donations  |       •      |   •   |         •         |     •    |      •      |      •     |        •       |
-    | Foundation donations |       •      |   •   |         •         |     •    |      •      |      •     |        •       |
-    | Government grants    |       •      |   •   |         •         |     •    |      •      |      •     |        •       |
-    | Other                |       •      |   •   |         •         |     •    |      •      |      •     |        •       |
-
-**Q2.15** Question about how they measure and evaluate programs
-
-:   For Bush:2015 taming
-
-    `TODO`
+    |                                                                                       | A great deal | A lot | A moderate amount | A little | None at all | Don't know | Not applicable |
+    | ------------------------------------------------------------------------------------- | :----------: | :---: | :---------------: | :------: | :---------: | :--------: | :------------: |
+    | Individual donations                                                                  |      •       |   •   |         •         |    •     |      •      |     •      |       •        |
+    | Corporate donations                                                                   |      •       |   •   |         •         |    •     |      •      |     •      |       •        |
+    | Foundation donations                                                                  |      •       |   •   |         •         |    •     |      •      |     •      |       •        |
+    | Grants from the government of the country in which your organization is headquartered |      •       |   •   |         •         |    •     |      •      |     •      |       •        |
+    | Grants from the government of the country in which your organization works            |      •       |   •   |         •         |    •     |      •      |     •      |       •        |
+    | Other                                                                                 |      •       |   •   |         •         |    •     |      •      |     •      |       •        |
 
 ---
 
-*Q2.16* In general, what would you say your organization is trying to accomplish?
+*Q2.15*: In general, what would you say your organization is trying to accomplish?
 
 :   Multiline text field
 
-*Q2.17* How is your organization's mission, vision, and values reflected in these objectives?
+*Q2.16*: How is your organization's mission, vision, and values reflected in these objectives?
 
 :   Multiline text field
 
-*Q2.18* Have these objectives changed any in the last 10 years? If so, how?
+*Q2.17*: Have these objectives changed any in the last 10 years? If so, how?
 
 :   Multiline text field
 
-*Q2.19* What are the major obstacles, if any, to reaching your organization's objectives?
+*Q2.18*: What are the major obstacles, if any, to reaching your organization's objectives?
 
 :   Multiline text field
 
-*Q2.20* Are there any changes that you would like to see in your organization's goals and strategies, now or in the future?
+*Q2.19*: Are there any changes that you would like to see in your organization's goals and strategies, now or in the future?
 
 :   Multiline text field
+
 
 ---
 
 # Government relations
 
+`country_name` = one of the countries from Q1.6a–d, selected at random.
+
+After completing the Q3.x block, ask respondent if they want to answer questions about another country—choose another Q1.6a–d country at random.
+
 ## General questions
 
-*Q3.1* Other than your organization's headquarters country, where does your organization work the most? *Or where has the organization been most restricted?*
-
-:   Autocomplete text field populated with a list of countries
-
-    Validate that it's not the same as their home country
-
-*Q3.2* How long has your organization worked in `country_name`?
+*Q3.1*: How long has your organization worked in `country_name`?
 
 :   Single answer
 
@@ -232,7 +239,7 @@ I have read the above information, and I consent to take part in the study.
     - 10 years or more
     - Don't know
 
-*Q3.3* What does your organization do in `country_name`?
+*Q3.2*: What does your organization do in `country_name`?
 
 :   Multiple answers allowed
 
@@ -242,7 +249,7 @@ I have read the above information, and I consent to take part in the study.
     - Partner with domestic NGOs
     - Don't know
 
-*Q3.4* Is your organization registered with the national government in `country_name`?
+*Q3.3*: Is your organization registered with the national government in `country_name`?
 
 :   Single answer
 
@@ -254,7 +261,7 @@ I have read the above information, and I consent to take part in the study.
 
 ## Contact with government
 
-*Q3.5* About how often does your organization have contact with government or party officials in `country_name`?
+*Q3.4*: About how often does your organization have contact with government or party officials in `country_name`?
 
 :   Single answer
 
@@ -265,7 +272,7 @@ I have read the above information, and I consent to take part in the study.
     - Never
     - Don't know
 
-*Q3.6* What kind of government officials does your organization have contact with?
+*Q3.5*: What kind of government officials does your organization have contact with?
 
 :   Multiple answers allowed
 
@@ -278,11 +285,11 @@ I have read the above information, and I consent to take part in the study.
     - We have no contact with government officials
     - Don't know
 
-*Q3.7* What kind of government officials does your organization have contact with *most often*?
+*Q3.6*: What kind of government officials does your organization have contact with *most often*?
 
 :   Text field
 
-*Q3.8* How often is your organization required to report to the government of `country_name`?
+*Q3.7*: How often is your organization required to report to the government of `country_name`?
 
 :   Single answer
 
@@ -293,7 +300,7 @@ I have read the above information, and I consent to take part in the study.
     - Never
     - Don't know
 
-*Q3.9* Are members of the government or ruling party of `country_name` involved in your work?
+*Q3.8*: Are members of the government or ruling party of `country_name` involved in your work?
 
 :   Single answer
 
@@ -301,7 +308,7 @@ I have read the above information, and I consent to take part in the study.
     - No
     - Don't know
 
-*Q3.10* How is the government of `country_name` involved in your work?
+*Q3.9*: How is the government of `country_name` involved in your work?
 
 :   Multiline text field
 
@@ -309,7 +316,7 @@ I have read the above information, and I consent to take part in the study.
 
 ## Relationship with government
 
-*Q3.11* How would you characterize your organization's relationship with the government of `country_name`? *Please note all survey responses will be kept strictly confidential*.
+*Q3.10*: How would you characterize your organization's relationship with the government of `country_name`? *Please note all survey responses will be kept strictly confidential*.
 
 :   Single answer
 
@@ -321,7 +328,7 @@ I have read the above information, and I consent to take part in the study.
     - Don't know
     - Prefer not to answer
 
-*Q3.12* Briefly describe your organization's relationship with the government of `country_name`:
+*Q3.11*: Briefly describe your organization's relationship with the government of `country_name`:
 
 :   Multiline text field
 
@@ -329,7 +336,7 @@ I have read the above information, and I consent to take part in the study.
 
 ## NGO regulations and restrictions
 
-*Q3.13* How familiar is your organization with regulations for international nongovernmental organizations (NGOs) in `country_name`?
+*Q3.12*: How familiar is your organization with regulations for international nongovernmental organizations (NGOs) in `country_name`?
 
 :   Single answer
 
@@ -340,7 +347,7 @@ I have read the above information, and I consent to take part in the study.
     - Not familiar at all
     - Don't know
 
-*Q3.14* How often do regulations for NGOs in `country_name` change?
+*Q3.13*: How often do regulations for NGOs in `country_name` change?
 
 :   Single answer
 
@@ -351,7 +358,7 @@ I have read the above information, and I consent to take part in the study.
     - Never
     - Don't know
 
-*Q3.15* How does your organization find out about changes to NGO regulations in `country_name`?
+*Q3.14*: How does your organization find out about changes to NGO regulations in `country_name`?
 
 :   Multiple answers allowed
 
@@ -364,35 +371,35 @@ I have read the above information, and I consent to take part in the study.
 
 ---
 
-*Q3.16* How is your organization affected by the following types of legal barriers for international NGOs in `country_name`?
+*Q3.15*: How is your organization affected by the following types of legal regulations for international NGOs in `country_name`?
 
 :   Qualtrics side-by-side table
 
     Types of legal barriers adapted from the [2012 Defending Civil Society Report](http://www.defendingcivilsociety.org/dl/reports/DCS_Report_Second_Edition_English.pdf)
 
-    |                                           | A great deal | A lot | A moderate amount | A little | Not at all | Don't know | Not applicable |  Comments  |
-    |-------------------------------------------|:------------:|:-----:|:-----------------:|:--------:|:----------:|:----------:|:--------------:|:----------:|
-    | Barriers to entry                         |       •      |   •   |         •         |     •    |      •     |      •     |        •       | Text field |
-    | Barriers to operational activity          |       •      |   •   |         •         |     •    |      •     |      •     |        •       | Text field |
-    | Barriers to speech and advocacy           |       •      |   •   |         •         |     •    |      •     |      •     |        •       | Text field |
-    | Barriers to communication and cooperation |       •      |   •   |         •         |     •    |      •     |      •     |        •       | Text field |
-    | Barriers to assembly                      |       •      |   •   |         •         |     •    |      •     |      •     |        •       | Text field |
-    | Barriers to resources                     |       •      |   •   |         •         |     •    |      •     |      •     |        •       | Text field |
+    |                                                     | A great deal | A lot | A moderate amount | A little | Not at all | Don't know | Not applicable |  Comments  |
+    | --------------------------------------------------- | :----------: | :---: | :---------------: | :------: | :--------: | :--------: | :------------: | :--------: |
+    | Regulations regarding registration                  |      •       |   •   |         •         |    •     |     •      |     •      |       •        | Text field |
+    | Regulations regarding operations                    |      •       |   •   |         •         |    •     |     •      |     •      |       •        | Text field |
+    | Regulations regarding speech and advocacy           |      •       |   •   |         •         |    •     |     •      |     •      |       •        | Text field |
+    | Regulations regarding communication and cooperation |      •       |   •   |         •         |    •     |     •      |     •      |       •        | Text field |
+    | Regulations regarding assembly                      |      •       |   •   |         •         |    •     |     •      |     •      |       •        | Text field |
+    | Regulations regarding resources                     |      •       |   •   |         •         |    •     |     •      |     •      |       •        | Text field |
 
 ---
 
-*Q3.17* Overall, how much is your organization's work restricted by the government of `country_name`?
+*Q3.16*: Overall, how is your organization's work affected by government regulations in `country_name`?
 
 :   Single answer
 
-    - Extremely restricted
-    - Very restricted
-    - Moderately restricted
-    - Slightly restricted
     - Not restricted at all
+    - Slightly restricted
+    - Moderately restricted
+    - Very restricted
+    - Extremely restricted
     - Don't know
 
-*Q3.18* How do the local laws and regulations in `country_name` affect your organization's ability to pursue its mission?
+*Q3.17*: How do the local laws and regulations in `country_name` affect your organization's ability to pursue its mission?
 
 :   Multiline text field
 
@@ -400,7 +407,7 @@ I have read the above information, and I consent to take part in the study.
 
 ## Responses to regulations
 
-*Q3.19* Has your organization changed its typical strategy because of government regulations in `country_name`?
+*Q3.18*: Over the last 10 years, has your organization changed its mix of programming in `country_name`?
 
 :   Single answer
 
@@ -408,11 +415,30 @@ I have read the above information, and I consent to take part in the study.
     - No
     - Don't know
 
-*Q3.20* How has your organization changed its typical strategy in `country_name`?
+*Q3.19*: How has your organization's mix of programming changed in `country_name`?
 
 :   Multiline text field
 
-*Q3.21* Has your organization discussed NGO regulations with government officials in `country_name`?
+    Display if Q3.18 is "Yes"
+
+*Q3.20*: Has your organization done any of the following in response to changes in government regulations in `country_name`?
+
+:   Qualtrics side-by-side table
+
+    |                                                   | Yes |  No | Don’t know | Not applicable |  Comments  |
+    | ------------------------------------------------- | :-: | :-: | :--------: | :------------: | :--------: |
+    | We changed the sources of our funding             |  •  |  •  |     •      |       •        | Text field |
+    | We changed the set of issues we work on           |  •  |  •  |     •      |       •        | Text field |
+    | We changed how we communicate with the government |  •  |  •  |     •      |       •        | Text field |
+    | We changed how we communicate with our donors     |  •  |  •  |     •      |       •        | Text field |
+    | We changed which locations we work in             |  •  |  •  |     •      |       •        | Text field |
+    | We changed the location of our country office     |  •  |  •  |     •      |       •        | Text field |
+    | We used more local staff and/or volunteers        |  •  |  •  |     •      |       •        | Text field |
+    | We used more foreign staff and/or volunteers      |  •  |  •  |     •      |       •        | Text field |
+
+---
+
+*Q3.21*: Has your organization discussed NGO regulations with government officials in `country_name`?
 
 :   Single answer
 
@@ -420,49 +446,40 @@ I have read the above information, and I consent to take part in the study.
     - No
     - Don't know
 
-*Q3.22* Has your organization tried to change NGO regulations in `country_name`?
+*Q3.22*: Has your organization tried to change NGO regulations in `country_name`?
 
 :   Single answer
 
     - Yes
     - No
     - Don't know
+
 
 ---
 
 # Final questions
 
-*Q4.1* What challenges does your organization face when working in democratic countries?
-
-:   Multiline text field
-
-*Q4.2* What challenges does your organization face when working in less democratic (i.e. authoritarian) countries?
+*Q4.1* Do you have any final comments?
 
 :   Multiline text field
 
 ---
 
-*Q4.3* Do you have any final comments?
-
-:   Multiline text field
-
----
-
-*Q4.4* May I contact you for any follow up questions?
+*Q4.2* May I contact you for any follow up questions?
 
 :   Single answer
 
     - Yes
     - No
 
-*Q4.5* Would you like to be notified of the results of this survey once it is completed?
+*Q4.3* Would you like to be notified of the results of this survey once it is completed?
 
 :   Single answer
 
     - Yes
     - No
 
-*Q4.6* Please provide an e-mail address I can use to contact you:
+*Q4.4* Please provide an e-mail address I can use to contact you:
 
 :   Text field
 
