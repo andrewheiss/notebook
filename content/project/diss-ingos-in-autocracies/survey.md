@@ -428,7 +428,7 @@ After completing the Q3.x block, ask respondent if they want to answer questions
     |                                                   | Yes |  No | Don’t know | Not applicable |  Comments  |
     | ------------------------------------------------- | :-: | :-: | :--------: | :------------: | :--------: |
     | We changed the sources of our funding             |  •  |  •  |     •      |       •        | Text field |
-    | We changed the set of issues we work on           |  •  |  •  |     •      |       •        | Text field |
+    | We changed which issues we work on                |  •  |  •  |     •      |       •        | Text field |
     | We changed how we communicate with the government |  •  |  •  |     •      |       •        | Text field |
     | We changed how we communicate with our donors     |  •  |  •  |     •      |       •        | Text field |
     | We changed which locations we work in             |  •  |  •  |     •      |       •        | Text field |
