@@ -37,6 +37,8 @@ $j(function() {
 });
 ```
 
+*[Get the full list of countries here](/project/diss-ingos-in-autocracies/survey-countries/)*
+
 Finally, the submenu needs some styling. Add this through the "Look and Feel" section:
 
 ```css
