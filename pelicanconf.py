@@ -134,7 +134,7 @@ LINKS = (('<i class="fa fa-home"></i> Notebook home', '/'),
 
 MENUITEMS = [('My homepage', 'https://www.andrewheiss.com'),
              ('ingorestrictions.org', 'https://ingorestrictions.org'),
-             ('ingodata.org', 'https://ingodata.org')]
+             ('ingoresearch.org', 'https://www.ingoresearch.org')]
 
 DEFAULT_PAGINATION = False
 
