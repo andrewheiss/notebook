@@ -1,6 +1,6 @@
 Title: Possible countries in survey
 Date: 2016-04-19
-Modified: 2016-04-19 10:03:25
+Modified: 2016-04-19 17:03:18
 Slug: survey-countries
 Highlight: True
 
@@ -40,37 +40,40 @@ wb.countries.raw
 # Clean up list of countries and add standard codes
 wb.countries.clean <- wb.countries.raw %>%
   # The table from their website uses four columns; gather those into one 
-  gather(key, country.name, everything()) %>%
+  gather(key, `Country name`, everything()) %>%
   select(-key) %>%
-  mutate(iso3 = countrycode(country.name, "country.name", "iso3c"),
-         cowcode = countrycode(iso3, "iso3c", "cown")) %>%
-  filter(!is.na(iso3))
+  mutate(ISO3 = countrycode(`Country name`, "country.name", "iso3c"),
+         `COW code` = countrycode(ISO3, "iso3c", "cown"),
+         `Qualtrics ID` = 1:n()) %>%
+  filter(!is.na(ISO3))
 wb.countries.clean
-#> Source: local data frame [212 x 3]
+#> Source: local data frame [212 x 4]
 #> 
-#>           country.name  iso3 cowcode
-#>                  <chr> <chr>   <int>
-#> 1          Afghanistan   AFG     700
-#> 2              Albania   ALB     339
-#> 3              Algeria   DZA     615
-#> 4       American Samoa   ASM      NA
-#> 5              Andorra   AND     232
-#> 6               Angola   AGO     540
-#> 7  Antigua and Barbuda   ATG      58
-#> 8            Argentina   ARG     160
-#> 9              Armenia   ARM     371
-#> 10               Aruba   ABW      NA
-#> ..                 ...   ...     ...
+#>           Country name  ISO3 COW code Qualtrics ID
+#>                  <chr> <chr>    <int>        <int>
+#> 1          Afghanistan   AFG      700            1
+#> 2              Albania   ALB      339            2
+#> 3              Algeria   DZA      615            3
+#> 4       American Samoa   ASM       NA            4
+#> 5              Andorra   AND      232            6
+#> 6               Angola   AGO      540            7
+#> 7  Antigua and Barbuda   ATG       58            8
+#> 8            Argentina   ARG      160            9
+#> 9              Armenia   ARM      371           10
+#> 10               Aruba   ABW       NA           11
+#> ..                 ...   ...      ...          ...
 
 # Nice Markdown table
-pandoc.table.return(rename(wb.countries.clean, `Country name` = country.name, 
-                           ISO3 = iso3, `COW code` = cowcode), 
-                    justify="lcc") %>%
+pandoc.table.return(wb.countries.clean, justify="lccc") %>%
   cat(., file=file.path(PROJHOME, "Data", "data_raw", "Survey", "survey_countries.md"))
 
 # Regex for question validation
-gsub("\\.", "\\\\.", paste(wb.countries.clean$country.name, collapse="|")) %>% 
+gsub("\\.", "\\\\.", paste(wb.countries.clean$`Country name`, collapse="|")) %>% 
   cat(., file=file.path(PROJHOME, "Data", "data_raw", "Survey", "survey_regex.txt"))
+
+# Plain text list of countries for Qualtrics
+cat(paste0(wb.countries.clean$`Country name`, collapse="\n"),
+    file=file.path(PROJHOME, "Data", "data_raw", "Survey", "survey_countries.txt"))
 ```
 
 # Validation regex
@@ -78,433 +81,647 @@ gsub("\\.", "\\\\.", paste(wb.countries.clean$country.name, collapse="|")) %>%
     Afghanistan|Albania|Algeria|American Samoa|Andorra|Angola|Antigua and Barbuda|Argentina|Armenia|Aruba|Australia|Austria|Azerbaijan|Bahamas, The|Bahrain|Bangladesh|Barbados|Belarus|Belgium|Belize|Benin|Bermuda|Bhutan|Bolivia|Bosnia and Herzegovina|Botswana|Brazil|Brunei Darussalam|Bulgaria|Burkina Faso|Burundi|Cabo Verde|Cambodia|Cameroon|Canada|Cayman Islands|Central African Republic|Chad|Chile|China|Colombia|Comoros|Congo, Dem\. Rep\.|Congo, Rep\.|Costa Rica|Cote d'Ivoire|Croatia|Cuba|Curacao|Cyprus|Czech Republic|Denmark|Djibouti|Dominica|Dominican Republic|Ecuador|Egypt, Arab Rep\.|El Salvador|Equatorial Guinea|Eritrea|Estonia|Ethiopia|Faroe Islands|Fiji|Finland|France|French Polynesia|Gabon|Gambia, The|Georgia|Germany|Ghana|Greece|Greenland|Grenada|Guam|Guatemala|Guinea|Guinea-Bissau|Guyana|Haiti|Honduras|Hong Kong SAR, China|Hungary|Iceland|India|Indonesia|Iran, Islamic Rep\.|Iraq|Ireland|Isle of Man|Israel|Italy|Jamaica|Japan|Jordan|Kazakhstan|Kenya|Kiribati|Korea, Dem\. People’s Rep\.|Korea, Rep\.|Kuwait|Kyrgyz Republic|Lao PDR|Latvia|Lebanon|Lesotho|Liberia|Libya|Liechtenstein|Lithuania|Luxembourg|Macao SAR, China|Macedonia, FYR|Madagascar|Malawi|Malaysia|Maldives|Mali|Malta|Marshall Islands|Mauritania|Mauritius|Mexico|Micronesia, Fed\. Sts\.|Moldova|Monaco|Mongolia|Montenegro|Morocco|Mozambique|Myanmar|Namibia|Nepal|Netherlands|New Caledonia|New Zealand|Nicaragua|Niger|Nigeria|Northern Mariana Islands|Norway|Oman|Pakistan|Palau|Panama|Papua New Guinea|Paraguay|Peru|Philippines|Poland|Portugal|Puerto Rico|Qatar|Romania|Russian Federation|Rwanda|Samoa|San Marino|Sao Tome and Principe|Saudi Arabia|Senegal|Serbia|Seychelles|Sierra Leone|Singapore|Sint Maarten (Dutch part)|Slovak Republic|Slovenia|Solomon Islands|Somalia|South Africa|South Sudan|Spain|Sri Lanka|St\. Kitts and Nevis|St\. Lucia|St\. Martin (French part)|St\. Vincent and the Grenadines|Sudan|Suriname|Swaziland|Sweden|Switzerland|Syrian Arab Republic|Tajikistan|Tanzania|Thailand|Timor-Leste|Togo|Tonga|Trinidad and Tobago|Tunisia|Turkey|Turkmenistan|Turks and Caicos Islands|Tuvalu|Uganda|Ukraine|United Arab Emirates|United Kingdom|United States|Uruguay|Uzbekistan|Vanuatu|Venezuela, RB|Vietnam|Virgin Islands (U\.S\.)|West Bank and Gaza|Yemen, Rep\.|Zambia|Zimbabwe
 
 
-# List
+# Lookup table
 
-------------------------------------------------
-Country name                    ISO3   COW code 
------------------------------- ------ ----------
-Afghanistan                     AFG      700    
+---------------------------------------------------------------
+Country name                    ISO3   COW code   Qualtrics ID 
+------------------------------ ------ ---------- --------------
+Afghanistan                     AFG      700           1       
 
-Albania                         ALB      339    
+Albania                         ALB      339           2       
 
-Algeria                         DZA      615    
+Algeria                         DZA      615           3       
 
-American Samoa                  ASM       NA    
+American Samoa                  ASM       NA           4       
 
-Andorra                         AND      232    
+Andorra                         AND      232           6       
 
-Angola                          AGO      540    
+Angola                          AGO      540           7       
 
-Antigua and Barbuda             ATG       58    
+Antigua and Barbuda             ATG       58           8       
 
-Argentina                       ARG      160    
+Argentina                       ARG      160           9       
 
-Armenia                         ARM      371    
+Armenia                         ARM      371           10      
 
-Aruba                           ABW       NA    
+Aruba                           ABW       NA           11      
 
-Australia                       AUS      900    
+Australia                       AUS      900           12      
 
-Austria                         AUT      305    
+Austria                         AUT      305           13      
 
-Azerbaijan                      AZE      373    
+Azerbaijan                      AZE      373           14      
 
-Bahamas, The                    BHS       31    
+Bahamas, The                    BHS       31           15      
 
-Bahrain                         BHR      692    
+Bahrain                         BHR      692           16      
 
-Bangladesh                      BGD      771    
+Bangladesh                      BGD      771           17      
 
-Barbados                        BRB       53    
+Barbados                        BRB       53           18      
 
-Belarus                         BLR      370    
+Belarus                         BLR      370           19      
 
-Belgium                         BEL      211    
+Belgium                         BEL      211           20      
 
-Belize                          BLZ       80    
+Belize                          BLZ       80           21      
 
-Benin                           BEN      434    
+Benin                           BEN      434           22      
 
-Bermuda                         BMU       NA    
+Bermuda                         BMU       NA           23      
 
-Bhutan                          BTN      760    
+Bhutan                          BTN      760           24      
 
-Bolivia                         BOL      145    
+Bolivia                         BOL      145           25      
 
-Bosnia and Herzegovina          BIH      346    
+Bosnia and Herzegovina          BIH      346           26      
 
-Botswana                        BWA      571    
+Botswana                        BWA      571           27      
 
-Brazil                          BRA      140    
+Brazil                          BRA      140           28      
 
-Brunei Darussalam               BRN      835    
+Brunei Darussalam               BRN      835           29      
 
-Bulgaria                        BGR      355    
+Bulgaria                        BGR      355           30      
 
-Burkina Faso                    BFA      439    
+Burkina Faso                    BFA      439           31      
 
-Burundi                         BDI      516    
+Burundi                         BDI      516           32      
 
-Cabo Verde                      CPV      402    
+Cabo Verde                      CPV      402           33      
 
-Cambodia                        KHM      811    
+Cambodia                        KHM      811           34      
 
-Cameroon                        CMR      471    
+Cameroon                        CMR      471           35      
 
-Canada                          CAN       20    
+Canada                          CAN       20           36      
 
-Cayman Islands                  CYM       NA    
+Cayman Islands                  CYM       NA           37      
 
-Central African Republic        CAF      482    
+Central African Republic        CAF      482           38      
 
-Chad                            TCD      483    
+Chad                            TCD      483           39      
 
-Chile                           CHL      155    
+Chile                           CHL      155           40      
 
-China                           CHN      710    
+China                           CHN      710           41      
 
-Colombia                        COL      100    
+Colombia                        COL      100           42      
 
-Comoros                         COM      581    
+Comoros                         COM      581           43      
 
-Congo, Dem. Rep.                COD      490    
+Congo, Dem. Rep.                COD      490           44      
 
-Congo, Rep.                     COG      484    
+Congo, Rep.                     COG      484           45      
 
-Costa Rica                      CRI       94    
+Costa Rica                      CRI       94           46      
 
-Cote d'Ivoire                   CIV      437    
+Cote d'Ivoire                   CIV      437           47      
 
-Croatia                         HRV      344    
+Croatia                         HRV      344           48      
 
-Cuba                            CUB       40    
+Cuba                            CUB       40           49      
 
-Curacao                         CUW       NA    
+Curacao                         CUW       NA           50      
 
-Cyprus                          CYP      352    
+Cyprus                          CYP      352           51      
 
-Czech Republic                  CZE      316    
+Czech Republic                  CZE      316           52      
 
-Denmark                         DNK      390    
+Denmark                         DNK      390           53      
 
-Djibouti                        DJI      522    
+Djibouti                        DJI      522           54      
 
-Dominica                        DMA       54    
+Dominica                        DMA       54           55      
 
-Dominican Republic              DOM       42    
+Dominican Republic              DOM       42           56      
 
-Ecuador                         ECU      130    
+Ecuador                         ECU      130           57      
 
-Egypt, Arab Rep.                EGY      651    
+Egypt, Arab Rep.                EGY      651           58      
 
-El Salvador                     SLV       92    
+El Salvador                     SLV       92           59      
 
-Equatorial Guinea               GNQ      411    
+Equatorial Guinea               GNQ      411           60      
 
-Eritrea                         ERI      531    
+Eritrea                         ERI      531           61      
 
-Estonia                         EST      366    
+Estonia                         EST      366           62      
 
-Ethiopia                        ETH      530    
+Ethiopia                        ETH      530           63      
 
-Faroe Islands                   FRO       NA    
+Faroe Islands                   FRO       NA           64      
 
-Fiji                            FJI      950    
+Fiji                            FJI      950           65      
 
-Finland                         FIN      375    
+Finland                         FIN      375           66      
 
-France                          FRA      220    
+France                          FRA      220           67      
 
-French Polynesia                PYF       NA    
+French Polynesia                PYF       NA           68      
 
-Gabon                           GAB      481    
+Gabon                           GAB      481           69      
 
-Gambia, The                     GMB      420    
+Gambia, The                     GMB      420           70      
 
-Georgia                         GEO      372    
+Georgia                         GEO      372           71      
 
-Germany                         DEU      255    
+Germany                         DEU      255           72      
 
-Ghana                           GHA      452    
+Ghana                           GHA      452           73      
 
-Greece                          GRC      350    
+Greece                          GRC      350           74      
 
-Greenland                       GRL       NA    
+Greenland                       GRL       NA           75      
 
-Grenada                         GRD       55    
+Grenada                         GRD       55           76      
 
-Guam                            GUM       NA    
+Guam                            GUM       NA           77      
 
-Guatemala                       GTM       90    
+Guatemala                       GTM       90           78      
 
-Guinea                          GIN      438    
+Guinea                          GIN      438           79      
 
-Guinea-Bissau                   GNB      404    
+Guinea-Bissau                   GNB      404           80      
 
-Guyana                          GUY      110    
+Guyana                          GUY      110           81      
 
-Haiti                           HTI       41    
+Haiti                           HTI       41           82      
 
-Honduras                        HND       91    
+Honduras                        HND       91           83      
 
-Hong Kong SAR, China            HKG       NA    
+Hong Kong SAR, China            HKG       NA           84      
 
-Hungary                         HUN      310    
+Hungary                         HUN      310           85      
 
-Iceland                         ISL      395    
+Iceland                         ISL      395           86      
 
-India                           IND      750    
+India                           IND      750           87      
 
-Indonesia                       IDN      850    
+Indonesia                       IDN      850           88      
 
-Iran, Islamic Rep.              IRN      630    
+Iran, Islamic Rep.              IRN      630           89      
 
-Iraq                            IRQ      645    
+Iraq                            IRQ      645           90      
 
-Ireland                         IRL      205    
+Ireland                         IRL      205           91      
 
-Isle of Man                     IMN       NA    
+Isle of Man                     IMN       NA           92      
 
-Israel                          ISR      666    
+Israel                          ISR      666           93      
 
-Italy                           ITA      325    
+Italy                           ITA      325           94      
 
-Jamaica                         JAM       51    
+Jamaica                         JAM       51           95      
 
-Japan                           JPN      740    
+Japan                           JPN      740           96      
 
-Jordan                          JOR      663    
+Jordan                          JOR      663           97      
 
-Kazakhstan                      KAZ      705    
+Kazakhstan                      KAZ      705           98      
 
-Kenya                           KEN      501    
+Kenya                           KEN      501           99      
 
-Kiribati                        KIR      946    
+Kiribati                        KIR      946          100      
 
-Korea, Dem. People’s Rep.       PRK      731    
+Korea, Dem. People’s Rep.       PRK      731          101      
 
-Korea, Rep.                     KOR      732    
+Korea, Rep.                     KOR      732          102      
 
-Kuwait                          KWT      690    
+Kuwait                          KWT      690          103      
 
-Kyrgyz Republic                 KGZ      703    
+Kyrgyz Republic                 KGZ      703          104      
 
-Lao PDR                         LAO      812    
+Lao PDR                         LAO      812          105      
 
-Latvia                          LVA      367    
+Latvia                          LVA      367          106      
 
-Lebanon                         LBN      660    
+Lebanon                         LBN      660          107      
 
-Lesotho                         LSO      570    
+Lesotho                         LSO      570          109      
 
-Liberia                         LBR      450    
+Liberia                         LBR      450          110      
 
-Libya                           LBY      620    
+Libya                           LBY      620          111      
 
-Liechtenstein                   LIE      223    
+Liechtenstein                   LIE      223          112      
 
-Lithuania                       LTU      368    
+Lithuania                       LTU      368          113      
 
-Luxembourg                      LUX      212    
+Luxembourg                      LUX      212          114      
 
-Macao SAR, China                MAC       NA    
+Macao SAR, China                MAC       NA          115      
 
-Macedonia, FYR                  MKD      343    
+Macedonia, FYR                  MKD      343          116      
 
-Madagascar                      MDG      580    
+Madagascar                      MDG      580          117      
 
-Malawi                          MWI      553    
+Malawi                          MWI      553          118      
 
-Malaysia                        MYS      820    
+Malaysia                        MYS      820          119      
 
-Maldives                        MDV      781    
+Maldives                        MDV      781          120      
 
-Mali                            MLI      432    
+Mali                            MLI      432          121      
 
-Malta                           MLT      338    
+Malta                           MLT      338          122      
 
-Marshall Islands                MHL      983    
+Marshall Islands                MHL      983          123      
 
-Mauritania                      MRT      435    
+Mauritania                      MRT      435          124      
 
-Mauritius                       MUS      590    
+Mauritius                       MUS      590          125      
 
-Mexico                          MEX       70    
+Mexico                          MEX       70          126      
 
-Micronesia, Fed. Sts.           FSM      987    
+Micronesia, Fed. Sts.           FSM      987          127      
 
-Moldova                         MDA      359    
+Moldova                         MDA      359          128      
 
-Monaco                          MCO      221    
+Monaco                          MCO      221          129      
 
-Mongolia                        MNG      712    
+Mongolia                        MNG      712          130      
 
-Montenegro                      MNE      341    
+Montenegro                      MNE      341          131      
 
-Morocco                         MAR      600    
+Morocco                         MAR      600          132      
 
-Mozambique                      MOZ      541    
+Mozambique                      MOZ      541          133      
 
-Myanmar                         MMR      775    
+Myanmar                         MMR      775          134      
 
-Namibia                         NAM      565    
+Namibia                         NAM      565          135      
 
-Nepal                           NPL      790    
+Nepal                           NPL      790          136      
 
-Netherlands                     NLD      210    
+Netherlands                     NLD      210          137      
 
-New Caledonia                   NCL       NA    
+New Caledonia                   NCL       NA          138      
 
-New Zealand                     NZL      920    
+New Zealand                     NZL      920          139      
 
-Nicaragua                       NIC       93    
+Nicaragua                       NIC       93          140      
 
-Niger                           NER      436    
+Niger                           NER      436          141      
 
-Nigeria                         NGA      475    
+Nigeria                         NGA      475          142      
 
-Northern Mariana Islands        MNP       NA    
+Northern Mariana Islands        MNP       NA          143      
 
-Norway                          NOR      385    
+Norway                          NOR      385          144      
 
-Oman                            OMN      698    
+Oman                            OMN      698          145      
 
-Pakistan                        PAK      770    
+Pakistan                        PAK      770          146      
 
-Palau                           PLW      986    
+Palau                           PLW      986          147      
 
-Panama                          PAN       95    
+Panama                          PAN       95          148      
 
-Papua New Guinea                PNG      910    
+Papua New Guinea                PNG      910          149      
 
-Paraguay                        PRY      150    
+Paraguay                        PRY      150          150      
 
-Peru                            PER      135    
+Peru                            PER      135          151      
 
-Philippines                     PHL      840    
+Philippines                     PHL      840          152      
 
-Poland                          POL      290    
+Poland                          POL      290          153      
 
-Portugal                        PRT      235    
+Portugal                        PRT      235          154      
 
-Puerto Rico                     PRI       NA    
+Puerto Rico                     PRI       NA          155      
 
-Qatar                           QAT      694    
+Qatar                           QAT      694          156      
 
-Romania                         ROU      360    
+Romania                         ROU      360          157      
 
-Russian Federation              RUS      365    
+Russian Federation              RUS      365          158      
 
-Rwanda                          RWA      517    
+Rwanda                          RWA      517          159      
 
-Samoa                           WSM      990    
+Samoa                           WSM      990          160      
 
-San Marino                      SMR      331    
+San Marino                      SMR      331          161      
 
-Sao Tome and Principe           STP      403    
+Sao Tome and Principe           STP      403          163      
 
-Saudi Arabia                    SAU      670    
+Saudi Arabia                    SAU      670          164      
 
-Senegal                         SEN      433    
+Senegal                         SEN      433          165      
 
-Serbia                          SRB       NA    
+Serbia                          SRB       NA          166      
 
-Seychelles                      SYC      591    
+Seychelles                      SYC      591          167      
 
-Sierra Leone                    SLE      451    
+Sierra Leone                    SLE      451          168      
 
-Singapore                       SGP      830    
+Singapore                       SGP      830          169      
 
-Sint Maarten (Dutch part)       SXM       NA    
+Sint Maarten (Dutch part)       SXM       NA          170      
 
-Slovak Republic                 SVK      317    
+Slovak Republic                 SVK      317          171      
 
-Slovenia                        SVN      349    
+Slovenia                        SVN      349          172      
 
-Solomon Islands                 SLB      940    
+Solomon Islands                 SLB      940          173      
 
-Somalia                         SOM      520    
+Somalia                         SOM      520          174      
 
-South Africa                    ZAF      560    
+South Africa                    ZAF      560          175      
 
-South Sudan                     SSD      626    
+South Sudan                     SSD      626          176      
 
-Spain                           ESP      230    
+Spain                           ESP      230          177      
 
-Sri Lanka                       LKA      780    
+Sri Lanka                       LKA      780          178      
 
-St. Kitts and Nevis             KNA       60    
+St. Kitts and Nevis             KNA       60          179      
 
-St. Lucia                       LCA       56    
+St. Lucia                       LCA       56          180      
 
-St. Martin (French part)        MAF       NA    
+St. Martin (French part)        MAF       NA          181      
 
-St. Vincent and the Grenadines  VCT       57    
+St. Vincent and the Grenadines  VCT       57          182      
 
-Sudan                           SDN      625    
+Sudan                           SDN      625          183      
 
-Suriname                        SUR      115    
+Suriname                        SUR      115          184      
 
-Swaziland                       SWZ      572    
+Swaziland                       SWZ      572          185      
 
-Sweden                          SWE      380    
+Sweden                          SWE      380          186      
 
-Switzerland                     CHE      225    
+Switzerland                     CHE      225          187      
 
-Syrian Arab Republic            SYR      652    
+Syrian Arab Republic            SYR      652          188      
 
-Tajikistan                      TJK      702    
+Tajikistan                      TJK      702          189      
 
-Tanzania                        TZA      510    
+Tanzania                        TZA      510          190      
 
-Thailand                        THA      800    
+Thailand                        THA      800          191      
 
-Timor-Leste                     TLS      860    
+Timor-Leste                     TLS      860          192      
 
-Togo                            TGO      461    
+Togo                            TGO      461          193      
 
-Tonga                           TON      955    
+Tonga                           TON      955          194      
 
-Trinidad and Tobago             TTO       52    
+Trinidad and Tobago             TTO       52          195      
 
-Tunisia                         TUN      616    
+Tunisia                         TUN      616          196      
 
-Turkey                          TUR      640    
+Turkey                          TUR      640          197      
 
-Turkmenistan                    TKM      701    
+Turkmenistan                    TKM      701          198      
 
-Turks and Caicos Islands        TCA       NA    
+Turks and Caicos Islands        TCA       NA          199      
 
-Tuvalu                          TUV      947    
+Tuvalu                          TUV      947          200      
 
-Uganda                          UGA      500    
+Uganda                          UGA      500          201      
 
-Ukraine                         UKR      369    
+Ukraine                         UKR      369          202      
 
-United Arab Emirates            ARE      696    
+United Arab Emirates            ARE      696          203      
 
-United Kingdom                  GBR      200    
+United Kingdom                  GBR      200          204      
 
-United States                   USA       2     
+United States                   USA       2           205      
 
-Uruguay                         URY      165    
+Uruguay                         URY      165          206      
 
-Uzbekistan                      UZB      704    
+Uzbekistan                      UZB      704          207      
 
-Vanuatu                         VUT      935    
+Vanuatu                         VUT      935          208      
 
-Venezuela, RB                   VEN      101    
+Venezuela, RB                   VEN      101          209      
 
-Vietnam                         VNM      816    
+Vietnam                         VNM      816          210      
 
-Virgin Islands (U.S.)           VIR       NA    
+Virgin Islands (U.S.)           VIR       NA          211      
 
-West Bank and Gaza              PSE       NA    
+West Bank and Gaza              PSE       NA          212      
 
-Yemen, Rep.                     YEM      679    
+Yemen, Rep.                     YEM      679          213      
 
-Zambia                          ZMB      551    
+Zambia                          ZMB      551          214      
 
-Zimbabwe                        ZWE      552    
-------------------------------------------------
+Zimbabwe                        ZWE      552          215      
+---------------------------------------------------------------
 
+# List for Qualtrics
+
+- Afghanistan
+- Albania
+- Algeria
+- American Samoa
+- Andorra
+- Angola
+- Antigua and Barbuda
+- Argentina
+- Armenia
+- Aruba
+- Australia
+- Austria
+- Azerbaijan
+- Bahamas, The
+- Bahrain
+- Bangladesh
+- Barbados
+- Belarus
+- Belgium
+- Belize
+- Benin
+- Bermuda
+- Bhutan
+- Bolivia
+- Bosnia and Herzegovina
+- Botswana
+- Brazil
+- Brunei Darussalam
+- Bulgaria
+- Burkina Faso
+- Burundi
+- Cabo Verde
+- Cambodia
+- Cameroon
+- Canada
+- Cayman Islands
+- Central African Republic
+- Chad
+- Chile
+- China
+- Colombia
+- Comoros
+- Congo, Dem. Rep.
+- Congo, Rep.
+- Costa Rica
+- Cote d'Ivoire
+- Croatia
+- Cuba
+- Curacao
+- Cyprus
+- Czech Republic
+- Denmark
+- Djibouti
+- Dominica
+- Dominican Republic
+- Ecuador
+- Egypt, Arab Rep.
+- El Salvador
+- Equatorial Guinea
+- Eritrea
+- Estonia
+- Ethiopia
+- Faroe Islands
+- Fiji
+- Finland
+- France
+- French Polynesia
+- Gabon
+- Gambia, The
+- Georgia
+- Germany
+- Ghana
+- Greece
+- Greenland
+- Grenada
+- Guam
+- Guatemala
+- Guinea
+- Guinea-Bissau
+- Guyana
+- Haiti
+- Honduras
+- Hong Kong SAR, China
+- Hungary
+- Iceland
+- India
+- Indonesia
+- Iran, Islamic Rep.
+- Iraq
+- Ireland
+- Isle of Man
+- Israel
+- Italy
+- Jamaica
+- Japan
+- Jordan
+- Kazakhstan
+- Kenya
+- Kiribati
+- Korea, Dem. People’s Rep.
+- Korea, Rep.
+- Kuwait
+- Kyrgyz Republic
+- Lao PDR
+- Latvia
+- Lebanon
+- Lesotho
+- Liberia
+- Libya
+- Liechtenstein
+- Lithuania
+- Luxembourg
+- Macao SAR, China
+- Macedonia, FYR
+- Madagascar
+- Malawi
+- Malaysia
+- Maldives
+- Mali
+- Malta
+- Marshall Islands
+- Mauritania
+- Mauritius
+- Mexico
+- Micronesia, Fed. Sts.
+- Moldova
+- Monaco
+- Mongolia
+- Montenegro
+- Morocco
+- Mozambique
+- Myanmar
+- Namibia
+- Nepal
+- Netherlands
+- New Caledonia
+- New Zealand
+- Nicaragua
+- Niger
+- Nigeria
+- Northern Mariana Islands
+- Norway
+- Oman
+- Pakistan
+- Palau
+- Panama
+- Papua New Guinea
+- Paraguay
+- Peru
+- Philippines
+- Poland
+- Portugal
+- Puerto Rico
+- Qatar
+- Romania
+- Russian Federation
+- Rwanda
+- Samoa
+- San Marino
+- Sao Tome and Principe
+- Saudi Arabia
+- Senegal
+- Serbia
+- Seychelles
+- Sierra Leone
+- Singapore
+- Sint Maarten (Dutch part)
+- Slovak Republic
+- Slovenia
+- Solomon Islands
+- Somalia
+- South Africa
+- South Sudan
+- Spain
+- Sri Lanka
+- St. Kitts and Nevis
+- St. Lucia
+- St. Martin (French part)
+- St. Vincent and the Grenadines
+- Sudan
+- Suriname
+- Swaziland
+- Sweden
+- Switzerland
+- Syrian Arab Republic
+- Tajikistan
+- Tanzania
+- Thailand
+- Timor-Leste
+- Togo
+- Tonga
+- Trinidad and Tobago
+- Tunisia
+- Turkey
+- Turkmenistan
+- Turks and Caicos Islands
+- Tuvalu
+- Uganda
+- Ukraine
+- United Arab Emirates
+- United Kingdom
+- United States
+- Uruguay
+- Uzbekistan
+- Vanuatu
+- Venezuela, RB
+- Vietnam
+- Virgin Islands (U.S.)
+- West Bank and Gaza
+- Yemen, Rep.
+- Zambia
+- Zimbabwe
