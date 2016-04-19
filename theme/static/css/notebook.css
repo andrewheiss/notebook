@@ -7,7 +7,7 @@ html, button, input, select, textarea,
     line-height: 1.7em;
     color: rgb(65, 65, 65);
     font-size: 15px;
-    font-family: 'source-sans-pro', sans-serif;
+    font-family: 'Source Sans Pro', 'source-sans-pro', sans-serif;
     font-weight: 400;
 }
 
@@ -36,7 +36,7 @@ a {
 }
 
 pre, code {
-    font-family: "hack", "Consolas", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New";
+    font-family: "Hack", "hack", "Consolas", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New";
     background-color: rgb(235, 235, 235);
     line-height: 1.5em;
     font-size: 0.9em;
