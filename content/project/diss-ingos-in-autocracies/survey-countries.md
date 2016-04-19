@@ -4,7 +4,81 @@ Modified: 2016-04-19 00:25:38
 Slug: survey-countries
 Highlight: True
 
-List of 212 countries taken from the [World Bank](http://data.worldbank.org/country) ([code](#code))
+List of 212 countries taken from the [World Bank](http://data.worldbank.org/country)
+
+# Code
+
+``` r
+library(dplyr)        # For magic dataframe manipulation
+library(tidyr)        # For more magic dataframe manipulation
+library(countrycode)  # Standardize countries
+library(rvest)        # Scrape stuff from the web
+library(pander)       # Markdown
+
+# World Bank countries
+wb.countries.raw <- read_html("http://data.worldbank.org/country") %>%
+  html_nodes(xpath='//*[@id="block-views-countries-block_1"]/div/div/div/table') %>%
+  html_table() %>% bind_rows() %>% as_data_frame()
+wb.countries.raw
+#> Source: local data frame [54 x 4]
+#> 
+#>                     X1                 X2               X3
+#>                  <chr>              <chr>            <chr>
+#> 1          Afghanistan           Dominica          Lesotho
+#> 2              Albania Dominican Republic          Liberia
+#> 3              Algeria            Ecuador            Libya
+#> 4       American Samoa   Egypt, Arab Rep.    Liechtenstein
+#> 5        Andean Region        El Salvador        Lithuania
+#> 6              Andorra  Equatorial Guinea       Luxembourg
+#> 7               Angola            Eritrea Macao SAR, China
+#> 8  Antigua and Barbuda            Estonia   Macedonia, FYR
+#> 9            Argentina           Ethiopia       Madagascar
+#> 10             Armenia      Faroe Islands           Malawi
+#> ..                 ...                ...              ...
+#> Variables not shown: X4 <chr>.
+
+# Clean up list of countries and add standard codes
+wb.countries.clean <- wb.countries.raw %>%
+  # The table from their website uses four columns; gather those into one 
+  gather(key, country.name, everything()) %>%
+  select(-key) %>%
+  mutate(iso3 = countrycode(country.name, "country.name", "iso3c"),
+         cowcode = countrycode(iso3, "iso3c", "cown")) %>%
+  filter(!is.na(iso3))
+wb.countries.clean
+#> Source: local data frame [212 x 3]
+#> 
+#>           country.name  iso3 cowcode
+#>                  <chr> <chr>   <int>
+#> 1          Afghanistan   AFG     700
+#> 2              Albania   ALB     339
+#> 3              Algeria   DZA     615
+#> 4       American Samoa   ASM      NA
+#> 5              Andorra   AND     232
+#> 6               Angola   AGO     540
+#> 7  Antigua and Barbuda   ATG      58
+#> 8            Argentina   ARG     160
+#> 9              Armenia   ARM     371
+#> 10               Aruba   ABW      NA
+#> ..                 ...   ...     ...
+
+# Nice Markdown table
+pandoc.table.return(rename(wb.countries.clean, `Country name` = country.name, 
+                           ISO3 = iso3, `COW code` = cowcode), 
+                    justify="lcc") %>%
+  cat(., file=file.path(PROJHOME, "Data", "data_raw", "Survey", "survey_countries.md"))
+
+# Regex for question validation
+gsub("\\.", "\\\\.", paste(wb.countries.clean$country.name, collapse="|")) %>% 
+  cat(., file=file.path(PROJHOME, "Data", "data_raw", "Survey", "survey_regex.txt"))
+```
+
+# Validation regex
+
+    Afghanistan|Albania|Algeria|American Samoa|Andorra|Angola|Antigua and Barbuda|Argentina|Armenia|Aruba|Australia|Austria|Azerbaijan|Bahamas, The|Bahrain|Bangladesh|Barbados|Belarus|Belgium|Belize|Benin|Bermuda|Bhutan|Bolivia|Bosnia and Herzegovina|Botswana|Brazil|Brunei Darussalam|Bulgaria|Burkina Faso|Burundi|Cabo Verde|Cambodia|Cameroon|Canada|Cayman Islands|Central African Republic|Chad|Chile|China|Colombia|Comoros|Congo, Dem\. Rep\.|Congo, Rep\.|Costa Rica|Cote d'Ivoire|Croatia|Cuba|Curacao|Cyprus|Czech Republic|Denmark|Djibouti|Dominica|Dominican Republic|Ecuador|Egypt, Arab Rep\.|El Salvador|Equatorial Guinea|Eritrea|Estonia|Ethiopia|Faroe Islands|Fiji|Finland|France|French Polynesia|Gabon|Gambia, The|Georgia|Germany|Ghana|Greece|Greenland|Grenada|Guam|Guatemala|Guinea|Guinea-Bissau|Guyana|Haiti|Honduras|Hong Kong SAR, China|Hungary|Iceland|India|Indonesia|Iran, Islamic Rep\.|Iraq|Ireland|Isle of Man|Israel|Italy|Jamaica|Japan|Jordan|Kazakhstan|Kenya|Kiribati|Korea, Dem\. People’s Rep\.|Korea, Rep\.|Kuwait|Kyrgyz Republic|Lao PDR|Latvia|Lebanon|Lesotho|Liberia|Libya|Liechtenstein|Lithuania|Luxembourg|Macao SAR, China|Macedonia, FYR|Madagascar|Malawi|Malaysia|Maldives|Mali|Malta|Marshall Islands|Mauritania|Mauritius|Mexico|Micronesia, Fed\. Sts\.|Moldova|Monaco|Mongolia|Montenegro|Morocco|Mozambique|Myanmar|Namibia|Nepal|Netherlands|New Caledonia|New Zealand|Nicaragua|Niger|Nigeria|Northern Mariana Islands|Norway|Oman|Pakistan|Palau|Panama|Papua New Guinea|Paraguay|Peru|Philippines|Poland|Portugal|Puerto Rico|Qatar|Romania|Russian Federation|Rwanda|Samoa|San Marino|Sao Tome and Principe|Saudi Arabia|Senegal|Serbia|Seychelles|Sierra Leone|Singapore|Sint Maarten (Dutch part)|Slovak Republic|Slovenia|Solomon Islands|Somalia|South Africa|South Sudan|Spain|Sri Lanka|St\. Kitts and Nevis|St\. Lucia|St\. Martin (French part)|St\. Vincent and the Grenadines|Sudan|Suriname|Swaziland|Sweden|Switzerland|Syrian Arab Republic|Tajikistan|Tanzania|Thailand|Timor-Leste|Togo|Tonga|Trinidad and Tobago|Tunisia|Turkey|Turkmenistan|Turks and Caicos Islands|Tuvalu|Uganda|Ukraine|United Arab Emirates|United Kingdom|United States|Uruguay|Uzbekistan|Vanuatu|Venezuela, RB|Vietnam|Virgin Islands (U\.S\.)|West Bank and Gaza|Yemen, Rep\.|Zambia|Zimbabwe
+
+
+# List
 
 ------------------------------------------------
 Country name                    ISO3   COW code 
@@ -433,63 +507,4 @@ Zambia                          ZMB      551
 
 Zimbabwe                        ZWE      552    
 ------------------------------------------------
-
-
-# Code
-
-``` r
-library(dplyr)        # For magic dataframe manipulation
-library(tidyr)        # For more magic dataframe manipulation
-library(countrycode)  # Standardize countries
-library(rvest)        # Scrape stuff from the web
-library(pander)       # Markdown
-library(reprex)       # Make reproducible snippets
-
-# World Bank countries
-wb.countries.raw <- read_html("http://data.worldbank.org/country") %>%
-  html_nodes(xpath='//*[@id="block-views-countries-block_1"]/div/div/div/table') %>%
-  html_table() %>% bind_rows() %>% as_data_frame()
-wb.countries.raw
-#> Source: local data frame [54 x 4]
-#> 
-#>                     X1                 X2               X3
-#>                  <chr>              <chr>            <chr>
-#> 1          Afghanistan           Dominica          Lesotho
-#> 2              Albania Dominican Republic          Liberia
-#> 3              Algeria            Ecuador            Libya
-#> 4       American Samoa   Egypt, Arab Rep.    Liechtenstein
-#> 5        Andean Region        El Salvador        Lithuania
-#> 6              Andorra  Equatorial Guinea       Luxembourg
-#> 7               Angola            Eritrea Macao SAR, China
-#> 8  Antigua and Barbuda            Estonia   Macedonia, FYR
-#> 9            Argentina           Ethiopia       Madagascar
-#> 10             Armenia      Faroe Islands           Malawi
-#> ..                 ...                ...              ...
-#> Variables not shown: X4 <chr>.
-
-# Clean up list of countries and add standard codes
-wb.countries.clean <- wb.countries.raw %>%
-  # The table from their website uses four columns; gather those into one 
-  gather(key, country.name, everything()) %>%
-  select(-key) %>%
-  mutate(iso3 = countrycode(country.name, "country.name", "iso3c"),
-         cowcode = countrycode(iso3, "iso3c", "cown")) %>%
-  filter(!is.na(iso3))
-wb.countries.clean
-#> Source: local data frame [212 x 3]
-#> 
-#>           country.name  iso3 cowcode
-#>                  <chr> <chr>   <int>
-#> 1          Afghanistan   AFG     700
-#> 2              Albania   ALB     339
-#> 3              Algeria   DZA     615
-#> 4       American Samoa   ASM      NA
-#> 5              Andorra   AND     232
-#> 6               Angola   AGO     540
-#> 7  Antigua and Barbuda   ATG      58
-#> 8            Argentina   ARG     160
-#> 9              Armenia   ARM     371
-#> 10               Aruba   ABW      NA
-#> ..                 ...   ...     ...
-```
 
