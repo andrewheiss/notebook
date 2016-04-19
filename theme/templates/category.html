@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "macros.html" as meta %}
 
-{% set title = category %}
+{% set title = category | striptags | escape %}
 {% set url = SITEURL + '/' + category.url %}
 
 {% block canonical_rel %}
