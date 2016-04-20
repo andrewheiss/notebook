@@ -8,7 +8,7 @@ Slug: ingo-survey-annotated
 
 *Q1.1*: You have been invited to participate in a research survey about the relationship between international nongovernmental organizations (INGOs) and the governments of their host countries. This survey is part of a study by Andrew Heiss from Duke University in the United States, with oversight by his adviser, Dr. Judith Kelley.
 
-Your participation is entirely voluntary and you are free to skip any question or withdraw from the survey at any time. The survey should take about **10 minutes** to complete. ***Please answer in whatever language you feel most comfortable using***.
+Your participation is entirely voluntary and you are free to skip any question or withdraw from the survey at any time. The survey should take about **15 minutes** to complete. ***Please answer in whatever language you feel most comfortable using***.
 
 Results from the survey will be used in aggregate so that it will not be possible to identify any individual organization. You can also explicitly choose to remain anonymous. Your responses will be securely transmitted to Qualtrics.com and stored in a password protected electronic format. The information you provide will be analyzed with statistical software and used in academic research.
 
@@ -140,8 +140,6 @@ If you have any questions at any time about the study or the procedures, you can
 
 :   Text field
 
-    Display if Q3.11 is not "Don't know" or "We do not…"
-
 *Q3.8*: How much of your organization's funding comes from each of these sources?
 
 :   Qualtrics side-by-side table
@@ -165,7 +163,7 @@ If you have any questions at any time about the study or the procedures, you can
 
 :   Multiline text field
 
-*Q3.11*: Have these objectives changed any in the last 10 years? If so, how?
+*Q3.11*: Have these objectives changed at all in the last 10 years? If so, how?
 
 :   Multiline text field
 
@@ -496,7 +494,7 @@ If you have any questions or concerns about this survey, please feel free to con
 
 ## Not INGO
 
-*Q7.1*: This survey is only concerned with international NGOS, or NGOs that work in countries other than the ones they are based in. Based on your responses, your organization only works in `home_country`, indicating that you are not an international NGO.  
+*Q7.1*: This survey is only concerned with international NGOs, or NGOs that work in countries other than the ones they are based in. Based on your responses, your organization only works in `home_country`, indicating that you are not an international NGO.  
 If this is a mistake and your organization does work abroad, click here to restart the survey. Otherwise, click on the forward arrow below to end the survey.  
 Thanks for your time!
 
