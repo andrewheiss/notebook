@@ -115,6 +115,7 @@ PANDOC_ARGS = [
     '--section-divs',  # wWap heading blocks with <section>
     '--filter', 'pandoc-citeproc',  # Bibliographies!
     '--csl=' + csl_path,
+    '--metadata', 'link-citations=true',
     '--bibliography=' + bibliography_path
 ]
 
