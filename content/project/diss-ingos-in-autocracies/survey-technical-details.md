@@ -1,6 +1,6 @@
 Title: Survey technical details
 Date: 2016-04-21
-Modified: 2016-04-21 11:26:38
+Modified: 2016-04-21 12:25:03
 Tags: survey
 Slug: survey-technical-details
 
@@ -30,7 +30,7 @@ So I did what all the cool kids do and used an e-mail delivery service. [GitHub'
 
 SendGrid is awesome.
 
-Their API is powerful and lets you send lots of e-mail quickly. The [Python wrapper for the API](https://github.com/sendgrid/sendgrid-python) is easy to use and intuitive. They have a nice templating engine and analytic and tracking features. Note to self: use SendGrid for all future survey administration.
+Their API is powerful and lets you send lots of e-mail quickly. The [Python wrapper for the API](https://github.com/sendgrid/sendgrid-python) is easy to use and intuitive ([see?](https://github.com/andrewheiss/Dissertation/blob/master/Data/Survey/send_mail.py)). They have a nice templating engine and analytic and tracking features. Note to self: use SendGrid for all future survey administration.
 
 To boost its reputation, I [whitelabeled](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html) the ingoresearch.org domain and all outgoing links. Despite all this DNS whitelabeling, my reputation took a huge hit after the first round of 2,000 e-mails, likely because there were so many bounces (i.e. it dropped from 100% to 76% (!))
 
@@ -38,6 +38,7 @@ I need to [clean and scrub my list more](https://sendgrid.com/docs/Classroom/Del
 
 All survey invitations come from survey@ingoresearch.org and all bounces are forwarded to bounces@ingoresearch.org.
 
+I [randomly assigned each e-mail address](https://github.com/andrewheiss/Dissertation/blob/master/Data/Survey/master_ingo_list.R) to a group of roughly 1,000 organizations and ran the sending script on each group.
 
 # Branding
 
