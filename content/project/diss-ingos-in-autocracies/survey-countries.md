@@ -2,6 +2,7 @@ Title: Possible countries in survey
 Date: 2016-04-19
 Modified: 2016-04-19 17:03:18
 Slug: survey-countries
+Tags: survey
 Highlight: True
 
 List of 212 countries taken from the [World Bank](http://data.worldbank.org/country)

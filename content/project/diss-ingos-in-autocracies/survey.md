@@ -2,6 +2,7 @@ Title: Annotated survey
 Date: 2016-04-12
 Modified: 2016-04-19 16:51:58
 Class: survey
+Tags: survey
 Slug: ingo-survey-annotated
 
 # Consent

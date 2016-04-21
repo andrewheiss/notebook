@@ -1,6 +1,7 @@
 Title: Survey notes
 Date: 2016-04-12
 Modified: 2016-04-12
+Tags: survey
 Highlight: True
 
 # UX issues
