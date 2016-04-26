@@ -7,5 +7,5 @@ cache/*
 output/*
 
 # Other stuff
-content/files/*
+content/files/images/*
 *.sublime-workspace
