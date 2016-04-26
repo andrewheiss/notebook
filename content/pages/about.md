@@ -29,6 +29,19 @@ One possible reason open notebooks have taken some root among historians, digita
 Thus, this notebook does not contain transcripts from in-person interviews, identifiable survey results, or contact information for people in any organizations I study. When I do link to information related to people, I link to publicly viewable pages such as Twitter profiles or institutional home pages. I store all my interview notes, transcriptions, and other details locally in an [SQLite database](https://www.andrewheiss.com/blog/2016/02/10/libreoffice-base-sqlite-odbc-osx/) in an encrypted spare bundle image.
 
 
+# Completeness and immediacy claims
+
+The Open Notebook Science community seems to have a([n old](http://usefulchem.blogspot.com/2009/02/open-notebook-science-claims-and-logos.html)) [taxonomy](http://software-carpentry.org/blog/2009/03/open-notebook-science-badges.html) of what kind of content notebooks will contain. This taxonomy has two dimensions: completeness and immediacy. The ultimate state of open notebooks is *all content immediate*, essentially indicating that ["if it isn't in the notebook, others can assume you haven't done it."](http://notebook.madsenlab.org/openscience.html)
+
+This notebook has a slightly weaker classification: *selected content immediate*.
+
+<div style="text-align: center;">
+![](/files/images/ons-sci.png "Selected content; immediately accessible"){.pure-img-responsive}
+</div>
+
+Some of my research is not included in this notebook (notably anything dealing with human subjects), and not all my analyses are posted here—most of the time, full scripts and analyses live in GitHub and not here. Anything that is in this notebook can be used now—if something isn't here, it doesn't mean that I haven't done it.
+
+
 # How it works
 
 While [Jekyll](https://jekyllrb.com/) seems to be what all the cool kids use these days for Markdown-based static notebooks or wikis (and it's the foundation for GitHub's own static hosting), and [while I used to use Jekyll](https://github.com/andrewheiss/ah-jekyll) for my own personal site, in 2014 I realized that I only ever used Ruby for one thing—Jekyll. I converted to [Pelican](http://blog.getpelican.com/)—Python's answer to Jekyll—in November 2014 and haven't looked back.
