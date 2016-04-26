@@ -100,8 +100,8 @@ ALL_NOTES_SAVE_AS = 'all_notes/index.html'
 PLUGIN_PATHS = ['/Users/andrew/Development/•Pelican/pelican-plugins']
 PLUGINS = ['category_meta', 'always_modified', 'pandoc_reader', 'tipue_search']
 
-MD_EXTENSIONS = ['smarty', 'extra', 'footnotes', 'meta',
-                 'codehilite(css_class=highlight)', 'headerid(level=2)']
+# MD_EXTENSIONS = ['smarty', 'extra', 'footnotes', 'meta',
+#                  'codehilite(css_class=highlight)', 'headerid(level=2)']
 
 
 # Pandoc settings
@@ -120,6 +120,7 @@ PANDOC_ARGS = [
 ]
 
 # Feed generation
+FEED_DOMAIN = SITEURL
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
@@ -131,7 +132,8 @@ LINKS = (('<i class="fa fa-home"></i> Notebook home', '/'),
          ('<i class="fa fa-question-circle"></i> About this notebook', '/about/'),
          ('<i class="fa fa-sort-alpha-asc"></i> All notes alphabetically', '/all_notes/'),
          ('<i class="fa fa-calendar"></i> All notes by date', '/archive/'),
-         ('<i class="fa fa-tags"></i> All notes by tag', '/tags/'))
+         ('<i class="fa fa-tags"></i> All notes by tag', '/tags/'),
+         ('<i class="fa fa-rss"></i> Full site feed', 'https://notebook.andrewheiss.com/feeds/all.atom.xml'))
 
 MENUITEMS = [('My homepage', 'https://www.andrewheiss.com'),
              ('ingorestrictions.org', 'https://ingorestrictions.org'),
