@@ -1,6 +1,6 @@
 Title: Survey technical details
 Date: 2016-04-21
-Modified: 2016-04-21 12:25:03
+Modified: 2016-04-25 21:17:02
 Tags: survey
 Slug: survey-technical-details
 
@@ -32,9 +32,11 @@ SendGrid is awesome.
 
 Their API is powerful and lets you send lots of e-mail quickly. The [Python wrapper for the API](https://github.com/sendgrid/sendgrid-python) is easy to use and intuitive ([see?](https://github.com/andrewheiss/Dissertation/blob/master/Data/Survey/send_mail.py)). They have a nice templating engine and analytic and tracking features. Note to self: use SendGrid for all future survey administration.
 
-To boost its reputation, I [whitelabeled](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html) the ingoresearch.org domain and all outgoing links. Despite all this DNS whitelabeling, my reputation took a huge hit after the first round of 2,000 e-mails, likely because there were so many bounces (i.e. it dropped from 100% to 76% (!))
+To boost its reputation, I [whitelabeled](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html) the ingoresearch.org domain and all outgoing links. Despite all this DNS whitelabeling, my reputation took a huge hit after the first round of 2,000 e-mails, likely because there were so many bounces (i.e. it dropped from 100% to 76% (!)). I also enabled [List-Unsubscribe](https://support.sendgrid.com/hc/en-us/articles/204379093-How-do-I-add-a-list-unsubscribe-header-to-my-emails-) in the SendGrid settings.
 
-I need to [clean and scrub my list more](https://sendgrid.com/docs/Classroom/Deliver/Address_Lists/list_scrubbing_guide.html), I guess.
+After sending ≈8,000 e-mails, my [SendGrid reputation](https://sendgrid.com/docs/Classroom/Deliver/Address_Lists/list_scrubbing_guide.html) dropped below 75% and my account was suspended. I'm working with them right now to get the account restored and get back to e-mailing. Right before this happened (spurred on by fears that something like this would happen), I caved and spent $100 to clean and scrub my list of e-mails using [Email Hippo](https://www.emailhippo.com/en-US). Roughly 30% of the e-mail addresses I submitted were dead and would have bounced, so now I have a smaller and cleaner list of addresses, which should help with my SendGrid reputation
+
+[MailTester.com](https://www.mail-tester.com) is incredibly useful for checking for issues with e-mails. For instance, it found that my e-mails were incredibly heavy, since the HTML template was heavily commented. I minified the CSS to resolve that issue.
 
 All survey invitations come from survey@ingoresearch.org and all bounces are forwarded to bounces@ingoresearch.org.
 
@@ -67,6 +69,8 @@ I used two Creative Commons-licensed images from The Noun Project ([World, by Sh
 ## E-mail template
 
 [HTML e-mail templates](http://webdesign.tutsplus.com/tutorials/what-you-should-know-about-html-email--webdesign-12908) are a [massive pain](http://genius.com/7982100). I used [Litmus](https://litmus.com/) to (1) adapt a pre-built template styled off of MailChimp's default template and (2) preview it in different e-mail programs. I discovered [Foundation for Emails](http://foundation.zurb.com/emails.html) after I had already made and tested the template—next time I do this, I'll use their templating system first.
+
+[View all the e-mail invitations.](/project/diss-ingos-in-autocracies/survey-invitations/)
 
 ![](/files/images/ingo-survey-email.png){.pure-img-responsive}
 
