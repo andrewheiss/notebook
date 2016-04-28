@@ -1,6 +1,6 @@
 Title: Annotated survey
 Date: 2016-04-12
-Modified: 2016-04-19 16:51:58
+Modified: 2016-04-27 22:35:11
 Class: survey
 Tags: survey
 Slug: ingo-survey-annotated
@@ -357,18 +357,56 @@ It's a mess, but it works.
 
 *Q4.16*: How is your organization affected by the following types of legal regulations for international NGOs in `target_country`?
 
-:   Qualtrics side-by-side table
+:   Matrix table
 
     Types of legal barriers adapted from the [2012 Defending Civil Society Report](http://www.defendingcivilsociety.org/dl/reports/DCS_Report_Second_Edition_English.pdf)
 
-    |                                                     | A great deal | A lot | A moderate amount | A little | Not at all | Don't know | Not applicable | Please explain briefly |
-    | --------------------------------------------------- | :----------: | :---: | :---------------: | :------: | :--------: | :--------: | :------------: | :--------------------: |
-    | Regulations regarding registration                  |      •       |   •   |         •         |    •     |     •      |     •      |       •        |       Text field       |
-    | Regulations regarding operations                    |      •       |   •   |         •         |    •     |     •      |     •      |       •        |       Text field       |
-    | Regulations regarding speech and advocacy           |      •       |   •   |         •         |    •     |     •      |     •      |       •        |       Text field       |
-    | Regulations regarding communication and cooperation |      •       |   •   |         •         |    •     |     •      |     •      |       •        |       Text field       |
-    | Regulations regarding assembly                      |      •       |   •   |         •         |    •     |     •      |     •      |       •        |       Text field       |
-    | Regulations regarding resources                     |      •       |   •   |         •         |    •     |     •      |     •      |       •        |       Text field       |
+    |                                                     | A great deal | A lot | A moderate amount | A little | Not at all | Don't know | Not applicable |
+    | --------------------------------------------------- | :----------: | :---: | :---------------: | :------: | :--------: | :--------: | :------------: |
+    | Regulations regarding registration                  |      •       |   •   |         •         |    •     |     •      |     •      |       •        |
+    | Regulations regarding operations                    |      •       |   •   |         •         |    •     |     •      |     •      |       •        |
+    | Regulations regarding speech and advocacy           |      •       |   •   |         •         |    •     |     •      |     •      |       •        |
+    | Regulations regarding communication and cooperation |      •       |   •   |         •         |    •     |     •      |     •      |       •        |
+    | Regulations regarding assembly                      |      •       |   •   |         •         |    •     |     •      |     •      |       •        |
+    | Regulations regarding resources                     |      •       |   •   |         •         |    •     |     •      |     •      |       •        |
+
+---
+
+*Q4.16a*: Please describe how your organization is affected by regulations regarding registration.
+
+:   Multiline text field
+
+    Only display if corresponding response in Q4.16 is "A great deal", "A lot", "A moderate amount", or "A little"
+
+*Q4.16b*: Please describe how your organization is affected by regulations regarding operations.
+
+:   Multiline text field
+
+    Only display if corresponding response in Q4.16 is "A great deal", "A lot", "A moderate amount", or "A little"
+
+*Q4.16c*: Please describe how your organization is affected by regulations regarding speech and advocacy.
+
+:   Multiline text field
+
+    Only display if corresponding response in Q4.16 is "A great deal", "A lot", "A moderate amount", or "A little"
+
+*Q4.16d*: Please describe how your organization is affected by regulations regarding communication and cooperation.
+
+:   Multiline text field
+
+    Only display if corresponding response in Q4.16 is "A great deal", "A lot", "A moderate amount", or "A little"
+
+*Q4.16e*: Please describe how your organization is affected by regulations regarding assembly.
+
+:   Multiline text field
+
+    Only display if corresponding response in Q4.16 is "A great deal", "A lot", "A moderate amount", or "A little"
+
+*Q4.16f*: Please describe how your organization is affected by regulations regarding resources.
+
+:   Multiline text field
+
+    Only display if corresponding response in Q4.16 is "A great deal", "A lot", "A moderate amount", or "A little"
 
 ---
 
@@ -407,18 +445,68 @@ It's a mess, but it works.
 
 *Q4.21*: Has your organization done any of the following in response to changes in government regulations in `target_country`?
 
-:   Qualtrics side-by-side table
+:   Matrix table
 
-    |                                                   | Yes |  No | Don’t know | Not applicable | Please explain briefly |
-    | ------------------------------------------------- | :-: | :-: | :--------: | :------------: | :--------------------: |
-    | We changed the sources of our funding             |  •  |  •  |     •      |       •        |       Text field       |
-    | We changed which issues we work on                |  •  |  •  |     •      |       •        |       Text field       |
-    | We changed how we communicate with the government |  •  |  •  |     •      |       •        |       Text field       |
-    | We changed how we communicate with our donors     |  •  |  •  |     •      |       •        |       Text field       |
-    | We changed which locations we work in             |  •  |  •  |     •      |       •        |       Text field       |
-    | We changed the location of our country office     |  •  |  •  |     •      |       •        |       Text field       |
-    | We used more local staff and/or volunteers        |  •  |  •  |     •      |       •        |       Text field       |
-    | We used more foreign staff and/or volunteers      |  •  |  •  |     •      |       •        |       Text field       |
+    |                                                   | Yes |  No | Don’t know | Not applicable |
+    | ------------------------------------------------- | :-: | :-: | :--------: | :------------: |
+    | We changed the sources of our funding             |  •  |  •  |     •      |       •        |
+    | We changed which issues we work on                |  •  |  •  |     •      |       •        |
+    | We changed how we communicate with the government |  •  |  •  |     •      |       •        |
+    | We changed how we communicate with our donors     |  •  |  •  |     •      |       •        |
+    | We changed which locations we work in             |  •  |  •  |     •      |       •        |
+    | We changed the location of our country office     |  •  |  •  |     •      |       •        |
+    | We used more local staff and/or volunteers        |  •  |  •  |     •      |       •        |
+    | We used more foreign staff and/or volunteers      |  •  |  •  |     •      |       •        |
+
+---
+
+*Q4.21a*: Please describe how your organization changed its funding sources. What regulation were you responding to?
+
+:   Multiline text field
+
+    Display if corresponding answer in Q4.21 is "Yes"
+
+*Q4.21b*: Please describe how your organization changed which issues it works on. What regulation were you responding to?
+
+:   Multiline text field
+
+    Display if corresponding answer in Q4.21 is "Yes"
+
+*Q4.21c*: Please describe how your organization changed how it communicates with the government. What regulation were you responding to?
+
+:   Multiline text field
+
+    Display if corresponding answer in Q4.21 is "Yes"
+
+*Q4.21d*: Please describe how your organization changed how it communicates with donors. What regulation were you responding to?
+
+:   Multiline text field
+
+    Display if corresponding answer in Q4.21 is "Yes"
+
+*Q4.21e*: Please describe how your organization changed the locations it works in. What regulation were you responding to?
+
+:   Multiline text field
+
+    Display if corresponding answer in Q4.21 is "Yes"
+
+*Q4.21f*: Please describe how your organization changed the location of its country office. What regulation were you responding to?
+
+:   Multiline text field
+
+    Display if corresponding answer in Q4.21 is "Yes"
+
+*Q4.21g*: Please describe how your organization used more local staff or volunteers. What regulation were you responding to?
+
+:   Multiline text field
+
+    Display if corresponding answer in Q4.21 is "Yes"
+
+*Q4.21h*: Please describe how your organization used more foreign staff or volunteers. What regulation were you responding to?
+
+:   Multiline text field
+
+    Display if corresponding answer in Q4.21 is "Yes"
 
 ---
 
@@ -440,8 +528,7 @@ It's a mess, but it works.
 
 ---
 
-*Q4.24*: That's all I need to know about your organization's work in `target_country`.  
-You can either answer the same set of questions for another country your organization works in (this would be helpful) or move on to the survey's final questions.
+*Q4.24*: That's all I need to know about your organization's work in `target_country`.<br><br>You can either answer the same set of questions for another country your organization works in (this would be helpful) or move on to the survey's final questions.
 
 :   Single answer
 
@@ -495,8 +582,6 @@ If you have any questions or concerns about this survey, please feel free to con
 
 ## Not INGO
 
-*Q7.1*: This survey is only concerned with international NGOs, or NGOs that work in countries other than the ones they are based in. Based on your responses, your organization only works in `home_country`, indicating that you are not an international NGO.  
-If this is a mistake and your organization does work abroad, click here to restart the survey. Otherwise, click on the forward arrow below to end the survey.  
-Thanks for your time!
+*Q7.1*: This survey is only concerned with international NGOs, or NGOs that work in countries other than the ones they are based in. Based on your responses, your organization only works in `home_country`, indicating that you are not an international NGO.<br><br>If this is a mistake and your organization does work abroad, click here to restart the survey. Otherwise, click on the forward arrow below to end the survey.<br><br>Thanks for your time!
 
 :   Descriptive text
