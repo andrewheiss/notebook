@@ -50,7 +50,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        {% for article in articles[:7] | sort(reverse=True, attribute='modified') %}
+                        {% for article in (articles | sort(reverse=True, attribute='modified'))[:7] %}
                             <tr>
                                 <td>{{ article.modified | strftime('%Y-%m-%d %H:%M:%S') }}</td>
                                 <td><a href='/{{ article.url }}'>{{ article.title }}</a></td>
