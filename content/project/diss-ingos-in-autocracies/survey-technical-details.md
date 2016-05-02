@@ -1,12 +1,12 @@
 Title: Survey technical details
 Date: 2016-04-21
-Modified: 2016-04-25 21:17:02
+Modified: 2016-05-02 12:22:12
 Tags: survey
 Slug: survey-technical-details
 
 Sending out invitations to ≈30,000 e-mail addresses—many of which are dead and defunct—is tricky. That's a high volume of e-mail and having too many bounces runs the risk of blacklisting my domain.
 
-I used a combination of a custom domain + SendGrid + Zoho + fancy branding + Litmus to send out a lot of e-mail, maintain a good sending reputation, and hopefully boost response rates.
+I used a combination of a custom domain + ~~SendGrid~~ Mailgun + Zoho + fancy branding + Litmus to send out a lot of e-mail, maintain a good sending reputation, and hopefully boost response rates.
 
 Here's what I did.
 
@@ -34,7 +34,11 @@ Their API is powerful and lets you send lots of e-mail quickly. The [Python wrap
 
 To boost its reputation, I [whitelabeled](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html) the ingoresearch.org domain and all outgoing links. Despite all this DNS whitelabeling, my reputation took a huge hit after the first round of 2,000 e-mails, likely because there were so many bounces (i.e. it dropped from 100% to 76% (!)). I also enabled [List-Unsubscribe](https://support.sendgrid.com/hc/en-us/articles/204379093-How-do-I-add-a-list-unsubscribe-header-to-my-emails-) in the SendGrid settings.
 
-After sending ≈8,000 e-mails, my [SendGrid reputation](https://sendgrid.com/docs/Classroom/Deliver/Address_Lists/list_scrubbing_guide.html) dropped below 75% and my account was suspended. I'm working with them right now to get the account restored and get back to e-mailing. Right before this happened (spurred on by fears that something like this would happen), I caved and spent $100 to clean and scrub my list of e-mails using [Email Hippo](https://www.emailhippo.com/en-US). Roughly 30% of the e-mail addresses I submitted were dead and would have bounced, so now I have a smaller and cleaner list of addresses, which should help with my SendGrid reputation
+My [SendGrid reputation](https://sendgrid.com/docs/Classroom/Deliver/Address_Lists/list_scrubbing_guide.html) dropped below 75% after sending ≈8,000 e-mails, and my account was permanently suspended. Right before this happened (spurred on by fears that something like this would happen), I caved and spent $100 to clean and scrub my list of e-mails using [Email Hippo](https://www.emailhippo.com/en-US), which categorized e-mails as "Ok", "Unverifiable", and "Bad." Roughly 30% of the e-mail addresses I submitted were bad and would have bounced immediately, so I removed them. About 25% were unverifiable, and 45% were clean.
+
+After getting kicked off of SendGrid, I switched to [Mailgun](https://mailgun.com), which offers similar services ([and is cheaper!](https://www.mailgun.com/pricing)). I started sending invitations to all unverifiable and clean addresses, assuming that "unverifiable" just meant that Email Hippo temporarily couldn't ping the address and that it was really okay. E-mails initially went really well, with only 12% of the messages getting dropped, and 4.8% bouncing. However, even though I thought this was great and low, Mailgun did not and I received a warning message that my account was on the verge of suspension.
+
+I removed all the unverifiable addresses and sent invitations only to clean organizations, which was magic—I got a bounce rate of ≈1.5%, which lowered my account's overall bounce rate to 2.7% and delivery rate to 94%. I need to scrub the list of unverifiable addresses one last time to weed out any organizations that were temporarily unavailable from the organizations that are actually dead.
 
 [MailTester.com](https://www.mail-tester.com) is incredibly useful for checking for issues with e-mails. For instance, it found that my e-mails were incredibly heavy, since the HTML template was heavily commented. I minified the CSS to resolve that issue.
 
