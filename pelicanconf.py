@@ -98,7 +98,7 @@ ALL_NOTES_SAVE_AS = 'all_notes/index.html'
 # Plugins
 # ---------
 PLUGIN_PATHS = ['/Users/andrew/Development/•Pelican/pelican-plugins']
-PLUGINS = ['category_meta', 'always_modified', 'pandoc_reader', 'tipue_search']
+PLUGINS = ['category_meta', 'always_modified', 'pandoc_reader', 'tipue_search', 'extract_toc']
 
 # MD_EXTENSIONS = ['smarty', 'extra', 'footnotes', 'meta',
 #                  'codehilite(css_class=highlight)', 'headerid(level=2)']
@@ -116,6 +116,8 @@ PANDOC_ARGS = [
     '--filter', 'pandoc-citeproc',  # Bibliographies!
     '--csl=' + csl_path,
     '--metadata', 'link-citations=true',
+    '--table-of-contents',
+    '--template=theme/pandoc-templates/pandoc-template-toc',
     '--bibliography=' + bibliography_path
 ]
 

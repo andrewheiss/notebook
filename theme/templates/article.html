@@ -51,6 +51,13 @@
             </div>
         </header>
 
+        {% if article.usetoc %}
+            <nav class="toc">
+            <h2>Contents</h2>
+            {{ article.toc }}
+            </nav>
+        {% endif %}
+
         {{ article.content | pure_table }}
 
         <footer>
