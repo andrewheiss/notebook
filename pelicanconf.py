@@ -26,7 +26,7 @@ DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 DEFAULT_LANG = 'en'
 
 TYPOGRIFY = True  # Nice typographic things
-TYPOGRIFY_IGNORE_TAGS = ['h1']
+TYPOGRIFY_IGNORE_TAGS = ['h1', 'span']  # Ignore spans because MathJax
 
 GOOGLE_ANALYTICS = ''
 
@@ -118,6 +118,7 @@ PANDOC_ARGS = [
     '--metadata', 'link-citations=true',
     '--table-of-contents',
     '--template=theme/pandoc-templates/pandoc-template-toc',
+    '--mathjax',  # Have pandoc convert to MathJax HTML because of Typogrify
     '--bibliography=' + bibliography_path
 ]
 

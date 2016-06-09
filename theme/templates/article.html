@@ -34,6 +34,10 @@
     <script src="/theme/js/plotlyjs-1.10.1/plotly-latest.min.js"></script>
     <script src="/theme/js/plotly-binding-3.6.0/plotly.js"></script>
 {% endif %}
+
+{% if article.math %}
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endif %}
 {% endblock extra_script %}
 
 {% block content %}
