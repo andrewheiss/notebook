@@ -9,3 +9,4 @@ output/*
 # Other stuff
 content/files/images/*
 *.sublime-workspace
+assets/*
