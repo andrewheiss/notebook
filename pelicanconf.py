@@ -97,12 +97,11 @@ ALL_NOTES_SAVE_AS = 'all_notes/index.html'
 # ---------
 # Plugins
 # ---------
-PLUGIN_PATHS = ['/Users/andrew/Development/•Pelican/pelican-plugins']
+PLUGIN_PATHS = ['/Users/andrew/Sites/Pelican/pelican-plugins']
 PLUGINS = ['category_meta', 'always_modified', 'pandoc_reader', 'tipue_search', 'extract_toc']
 
 # MD_EXTENSIONS = ['smarty', 'extra', 'footnotes', 'meta',
 #                  'codehilite(css_class=highlight)', 'headerid(level=2)']
-
 
 # Pandoc settings
 bibliography_path = '/Users/andrew/Dropbox/Readings/Papers.bib'
